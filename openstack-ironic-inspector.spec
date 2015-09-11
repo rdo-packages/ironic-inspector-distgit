@@ -55,9 +55,9 @@ Requires: python-stevedore
 Requires: python-swiftclient
 
 Obsoletes: openstack-ironic-discoverd < 1.1.0-3
-Provides: openstack-ironic-discoverd = %{version}-%{release}
+Provides: openstack-ironic-discoverd = %{upstream_version}
 Obsoletes: python-ironic-discoverd < 1.1.0-3
-Provides: python-ironic-discoverd = %{version}-%{release}
+Provides: python-ironic-discoverd = %{upstream_version}
 
 
 %description
@@ -126,8 +126,3 @@ install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dns
 %postun
 %systemd_postun_with_restart openstack-ironic-inspector.service
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
-
-
-%changelog
-* Fri Sep 11 2015 John Trowbridge <trown@redhat.com> - 2.1.0-1
-- Rename from openstack-ironic-discoverd 1.1.0-3
