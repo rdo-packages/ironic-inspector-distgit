@@ -1,0 +1,10 @@
+[Unit]
+Description=Hardware introspection service for OpenStack Ironic
+
+[Service]
+ExecStart=/usr/bin/ironic-inspector --config-file /etc/ironic-inspector/inspector.conf
+User=root
+
+[Install]
+WantedBy=multi-user.target
+Alias=openstack-ironic-inspector.service
