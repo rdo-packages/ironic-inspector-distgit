@@ -3,8 +3,8 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    2.1.0
-Release:    1%{?dist}
+Version:    XXX 
+Release:    XXX
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
@@ -23,6 +23,8 @@ BuildRequires: python-babel
 BuildRequires: python-eventlet
 BuildRequires: python-flask
 BuildRequires: python-ironicclient
+BuildRequires: python-jsonpath-rw
+BuildRequires: python-jsonschema
 BuildRequires: python-keystoneclient
 BuildRequires: python-keystonemiddleware
 BuildRequires: python-oslo-config
@@ -43,6 +45,8 @@ Requires: python-babel
 Requires: python-eventlet
 Requires: python-flask
 Requires: python-ironicclient
+Requires: python-jsonpath-rw
+Requires: python-jsonschema
 Requires: python-keystoneclient
 Requires: python-keystonemiddleware
 Requires: python-oslo-config
@@ -81,10 +85,10 @@ rm -rf *.egg-info
 rm -rf {test-,plugin-,}requirements.txt
 
 %build
-%py2_build
+%{__python2} setup.py build
 
 %install
-%py2_install
+%{__python2} setup.py install --skip-build --root=%{buildroot}
 mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
 
@@ -126,3 +130,5 @@ install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dns
 %postun
 %systemd_postun_with_restart openstack-ironic-inspector.service
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
+
+%changelog
