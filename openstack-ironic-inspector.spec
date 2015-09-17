@@ -3,7 +3,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    XXX 
+Version:    XXX
 Release:    XXX
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -60,8 +60,6 @@ Requires: python-swiftclient
 
 Obsoletes: openstack-ironic-discoverd < 1.1.0-3
 Provides: openstack-ironic-discoverd = %{upstream_version}
-Obsoletes: python-ironic-discoverd < 1.1.0-3
-Provides: python-ironic-discoverd = %{upstream_version}
 
 
 %description
