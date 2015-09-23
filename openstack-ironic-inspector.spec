@@ -12,6 +12,7 @@ Source0:    https://pypi.python.org/packages/source/i/%{pypi_name}/%{pypi_name}-
 Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
+Source4:    ironic-inspector-rootwrap-sudoers
 
 BuildArch:  noarch
 BuildRequires: python2-devel
@@ -53,6 +54,7 @@ Requires: python-oslo-config
 Requires: python-oslo-db
 Requires: python-oslo-i18n
 Requires: python-oslo-log
+Requires: python-oslo-rootwrap
 Requires: python-oslo-utils
 Requires: python-six
 Requires: python-stevedore
@@ -95,9 +97,18 @@ mkdir -p %{buildroot}%{_unitdir}
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}
 
+# install sudoers file
+mkdir -p %{buildroot}%{_sysconfdir}/sudoers.d
+install -p -D -m 440 %{SOURCE4} %{buildroot}%{_sysconfdir}/sudoers.d/ironic-inspector
+
 # configuration contains passwords, thus 640
 install -p -D -m 640 example.conf %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
 install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dnsmasq.conf
+
+# rootwrap configuration
+mkdir -p %{buildroot}%{_sysconfdir}/ironic-inspector/rootwrap.d
+install -p -D -m 640 rootwrap.conf %{buildroot}/%{_sysconfdir}/ironic-inspector/rootwrap.conf
+install -p -D -m 640 rootwrap.d/* %{buildroot}/%{_sysconfdir}/ironic-inspector/rootwrap.d/
 
 %check
 %{__python2} -m unittest discover ironic_inspector.test
@@ -106,9 +117,10 @@ install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dns
 %doc README.rst
 %license LICENSE
 %config(noreplace) %attr(-,root,root) %{_sysconfdir}/ironic-inspector
+%{_sysconfdir}/sudoers.d/ironic-inspector
 %{python2_sitelib}/ironic_inspector*
-%{python2_sitelib}/ironic_inspector-*.egg-info
 %{_bindir}/ironic-inspector
+%{_bindir}/ironic-inspector-rootwrap
 %{_unitdir}/openstack-ironic-inspector.service
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 %doc %{_mandir}/man8/ironic-inspector.8.gz
@@ -116,6 +128,13 @@ install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dns
 %files -n openstack-ironic-inspector-doc
 %license LICENSE
 %doc CONTRIBUTING.rst HTTP-API.rst
+
+%pre
+getent group ironic-inspector >/dev/null || groupadd -r ironic-inspector
+getent passwd ironic-inspector >/dev/null || \
+    useradd -r -g ironic-inspector -d %{_sharedstatedir}/ironic-inspector -s /sbin/nologin \
+-c "OpenStack Ironic Inspector Daemons" ironic-inspector
+exit 0
 
 %post
 %systemd_post openstack-ironic-inspector.service

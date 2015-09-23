@@ -3,7 +3,7 @@ Description=Hardware introspection service for OpenStack Ironic
 
 [Service]
 ExecStart=/usr/bin/ironic-inspector --config-file /etc/ironic-inspector/inspector.conf
-User=root
+User=ironic-inspector
 
 [Install]
 WantedBy=multi-user.target
