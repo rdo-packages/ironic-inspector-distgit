@@ -110,19 +110,24 @@ mkdir -p %{buildroot}%{_sysconfdir}/ironic-inspector/rootwrap.d
 install -p -D -m 640 rootwrap.conf %{buildroot}/%{_sysconfdir}/ironic-inspector/rootwrap.conf
 install -p -D -m 640 rootwrap.d/* %{buildroot}/%{_sysconfdir}/ironic-inspector/rootwrap.d/
 
+# shared state directory for sqlite database
+mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
+
 %check
 %{__python2} -m unittest discover ironic_inspector.test
 
 %files
 %doc README.rst
 %license LICENSE
-%config(noreplace) %attr(-,root,root) %{_sysconfdir}/ironic-inspector
+%config(noreplace) %attr(-,root,ironic-inspector) %{_sysconfdir}/ironic-inspector
 %{_sysconfdir}/sudoers.d/ironic-inspector
 %{python2_sitelib}/ironic_inspector*
 %{_bindir}/ironic-inspector
 %{_bindir}/ironic-inspector-rootwrap
+%{_bindir}/ironic-inspector-dbsync
 %{_unitdir}/openstack-ironic-inspector.service
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
+%attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
 %doc %{_mandir}/man8/ironic-inspector.8.gz
 
 %files -n openstack-ironic-inspector-doc
