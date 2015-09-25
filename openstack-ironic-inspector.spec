@@ -79,7 +79,6 @@ Documentation for Ironic Inspector.
 
 %prep
 %autosetup -v -p 1 -n %{pypi_name}-%{upstream_version}
-rm -rf *.egg-info
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
 rm -rf {test-,plugin-,}requirements.txt
