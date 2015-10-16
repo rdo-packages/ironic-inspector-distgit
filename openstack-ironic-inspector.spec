@@ -4,7 +4,7 @@
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
 Version:    2.2.1
-Release:    1
+Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
