@@ -3,8 +3,8 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    XXX
-Release:    XXX
+Version:    2.2.1
+Release:    1
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
@@ -153,3 +153,6 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+
+* Fri Oct 16 2015 John Trowbridge <trown@redhat.com> - 2.2.1-1
+- Initial release of renamed package.
