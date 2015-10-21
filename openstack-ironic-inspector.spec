@@ -1,14 +1,14 @@
-%global pypi_name ironic-inspector
+%global service ironic-inspector
 %{!?upstream_version: %global upstream_version %{version}}
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    2.2.1
+Version:    2.2.2
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
-Source0:    https://pypi.python.org/packages/source/i/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:    https://pypi.python.org/packages/source/i/%{service}/%{service}-%{version}.tar.gz
 Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
@@ -78,7 +78,7 @@ Summary:    Documentation for Ironic Inspector.
 Documentation for Ironic Inspector.
 
 %prep
-%autosetup -v -p 1 -n %{pypi_name}-%{upstream_version}
+%autosetup -v -p 1 -n %{service}-%{upstream_version}
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
 rm -rf {test-,plugin-,}requirements.txt
@@ -153,6 +153,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+* Wed Oct 21 2015 John Trowbridge <trown@redhat.com> 2.2.2-1
+- Update to 2.2.2
+- Use service instead of pypi_name for consistency with other RDO packages
 
 * Fri Oct 16 2015 John Trowbridge <trown@redhat.com> - 2.2.1-1
 - Initial release of renamed package.
