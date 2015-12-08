@@ -28,12 +28,15 @@ BuildRequires: python-jsonpath-rw
 BuildRequires: python-jsonschema
 BuildRequires: python-keystoneclient
 BuildRequires: python-keystonemiddleware
+BuildRequires: python-oslo-concurrency
 BuildRequires: python-oslo-config
 BuildRequires: python-oslo-db
 BuildRequires: python-oslo-i18n
 BuildRequires: python-oslo-log
+BuildRequires: python-oslo-sphinx
 BuildRequires: python-oslo-utils
 BuildRequires: python-six
+BuildRequires: python-sphinx
 BuildRequires: python-stevedore
 BuildRequires: python-swiftclient
 
@@ -50,6 +53,7 @@ Requires: python-jsonpath-rw
 Requires: python-jsonschema
 Requires: python-keystoneclient
 Requires: python-keystonemiddleware
+Requires: python-oslo-concurrency
 Requires: python-oslo-config
 Requires: python-oslo-db
 Requires: python-oslo-i18n
@@ -85,6 +89,7 @@ rm -rf {test-,plugin-,}requirements.txt
 
 %build
 %{__python2} setup.py build
+%{__python2} setup.py build_sphinx
 
 %install
 %{__python2} setup.py install --skip-build --root=%{buildroot}
@@ -131,7 +136,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 
 %files -n openstack-ironic-inspector-doc
 %license LICENSE
-%doc CONTRIBUTING.rst HTTP-API.rst
+%doc CONTRIBUTING.rst doc/build/html
 
 %pre
 getent group ironic-inspector >/dev/null || groupadd -r ironic-inspector
