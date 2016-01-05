@@ -64,7 +64,7 @@ Requires: python-six
 Requires: python-stevedore
 Requires: python-swiftclient
 
-Obsoletes: openstack-ironic-discoverd < 1.1.0-3
+Obsoletes: openstack-ironic-discoverd < 1.1.1
 Provides: openstack-ironic-discoverd = %{upstream_version}
 
 
