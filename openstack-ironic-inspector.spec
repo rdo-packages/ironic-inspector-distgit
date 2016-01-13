@@ -4,7 +4,7 @@
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
 Version:    2.2.2
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
@@ -111,6 +111,7 @@ install -p -D -m 640 rootwrap.d/* %{buildroot}/%{_sysconfdir}/ironic-inspector/r
 
 # shared state directory for sqlite database
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
+mkdir -p %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk/
 
 %check
 %{__python2} -m unittest discover ironic_inspector.test
@@ -127,6 +128,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %{_unitdir}/openstack-ironic-inspector.service
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
+%attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector/ramdisk/
 %doc %{_mandir}/man8/ironic-inspector.8.gz
 
 %files -n openstack-ironic-inspector-doc
@@ -153,6 +155,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+* Thu Feb 11 2015 John Trowbridge <trown@redhat.com> 2.2.2-2
+- Create the ramdisk log directory
+
 * Wed Oct 21 2015 John Trowbridge <trown@redhat.com> 2.2.2-1
 - Update to 2.2.2
 - Use service instead of pypi_name for consistency with other RDO packages
