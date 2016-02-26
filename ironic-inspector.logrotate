@@ -1,0 +1,6 @@
+/var/log/ironic-inspector/*.log {
+    rotate 14
+    size 10M
+    missingok
+    compress
+}

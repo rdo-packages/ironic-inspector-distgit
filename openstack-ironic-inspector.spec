@@ -13,6 +13,8 @@ Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
 Source4:    ironic-inspector-rootwrap-sudoers
+Source5:    ironic-inspector.logrotate
+Source6:    ironic-inspector-dist.conf
 
 BuildArch:  noarch
 BuildRequires: python2-devel
@@ -91,6 +93,10 @@ rm -rf {test-,plugin-,}requirements.txt
 mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
 
+# logs configuration
+mkdir -p %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk/
+install -p -D -m 644 %{SOURCE5} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-ironic-inspector
+
 # install systemd scripts
 mkdir -p %{buildroot}%{_unitdir}
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}
@@ -102,6 +108,7 @@ install -p -D -m 440 %{SOURCE4} %{buildroot}%{_sysconfdir}/sudoers.d/ironic-insp
 
 # configuration contains passwords, thus 640
 install -p -D -m 640 example.conf %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
+install -p -D -m 640 %{SOURCE6} %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector-dist.conf
 install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dnsmasq.conf
 
 # rootwrap configuration
@@ -111,7 +118,6 @@ install -p -D -m 640 rootwrap.d/* %{buildroot}/%{_sysconfdir}/ironic-inspector/r
 
 # shared state directory for sqlite database
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
-mkdir -p %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk/
 
 %check
 %{__python2} -m unittest discover ironic_inspector.test
@@ -120,6 +126,7 @@ mkdir -p %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk/
 %doc README.rst
 %license LICENSE
 %config(noreplace) %attr(-,root,ironic-inspector) %{_sysconfdir}/ironic-inspector
+%config(noreplace) %{_sysconfdir}/logrotate.d/openstack-ironic-inspector
 %{_sysconfdir}/sudoers.d/ironic-inspector
 %{python2_sitelib}/ironic_inspector*
 %{_bindir}/ironic-inspector
@@ -128,6 +135,7 @@ mkdir -p %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk/
 %{_unitdir}/openstack-ironic-inspector.service
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
+%attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector/ramdisk/
 %doc %{_mandir}/man8/ironic-inspector.8.gz
 
