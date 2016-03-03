@@ -24,6 +24,7 @@ BuildRequires: systemd
 BuildRequires: python-mock
 BuildRequires: python-babel
 BuildRequires: python-eventlet
+BuildRequires: python-fixtures
 BuildRequires: python-flask
 BuildRequires: python-ironicclient
 BuildRequires: python-jsonpath-rw
@@ -37,10 +38,13 @@ BuildRequires: python-oslo-i18n
 BuildRequires: python-oslo-log
 BuildRequires: python-oslo-sphinx
 BuildRequires: python-oslo-utils
+BuildRequires: python-oslotest
 BuildRequires: python-six
 BuildRequires: python-sphinx
 BuildRequires: python-stevedore
 BuildRequires: python-swiftclient
+BuildRequires: python-testscenarios
+BuildRequires: python-testresources
 
 Requires: dnsmasq
 Requires(post): systemd
