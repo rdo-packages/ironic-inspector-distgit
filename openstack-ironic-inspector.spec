@@ -26,6 +26,7 @@ BuildRequires: python-babel
 BuildRequires: python-eventlet
 BuildRequires: python-fixtures
 BuildRequires: python-flask
+BuildRequires: python-futurist
 BuildRequires: python-ironicclient
 BuildRequires: python-jsonpath-rw
 BuildRequires: python-jsonschema
@@ -54,6 +55,7 @@ Requires(postun): systemd
 Requires: python-babel
 Requires: python-eventlet
 Requires: python-flask
+Requires: python-futurist
 Requires: python-ironicclient
 Requires: python-jsonpath-rw
 Requires: python-jsonschema
