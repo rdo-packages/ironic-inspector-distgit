@@ -37,6 +37,7 @@ BuildRequires: python-oslo-config
 BuildRequires: python-oslo-db
 BuildRequires: python-oslo-i18n
 BuildRequires: python-oslo-log
+BuildRequires: python-oslo-middleware
 BuildRequires: python-oslo-sphinx
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslotest
@@ -66,6 +67,7 @@ Requires: python-oslo-config
 Requires: python-oslo-db
 Requires: python-oslo-i18n
 Requires: python-oslo-log
+Requires: python-oslo-middleware
 Requires: python-oslo-rootwrap
 Requires: python-oslo-utils
 Requires: python-six
