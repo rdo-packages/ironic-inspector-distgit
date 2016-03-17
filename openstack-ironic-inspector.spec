@@ -166,7 +166,7 @@ exit 0
 * Thu Mar 17 2016 Dmitry Tantsur <dtantsur@redhat.com> 2.2.2-3
 - Bring logging configuration in line with other services
 
-* Thu Feb 11 2015 John Trowbridge <trown@redhat.com> 2.2.2-2
+* Thu Feb 11 2016 John Trowbridge <trown@redhat.com> 2.2.2-2
 - Create the ramdisk log directory
 
 * Wed Oct 21 2015 John Trowbridge <trown@redhat.com> 2.2.2-1
