@@ -3,12 +3,12 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    XXX
-Release:    XXX
+Version:    3.2.0
+Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
-Source0:    https://pypi.python.org/packages/source/i/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:    https://pypi.python.org/packages/source/i/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
 Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
@@ -176,3 +176,5 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+* Wed Mar 30 2016 RDO <rdo-list@redhat.com> 3.2.0-0.1
+- RC1 Rebuild for Mitaka RC1 
