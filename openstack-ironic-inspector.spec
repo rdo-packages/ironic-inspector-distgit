@@ -133,7 +133,7 @@ install -p -D -m 640 rootwrap.d/* %{buildroot}/%{_sysconfdir}/ironic-inspector/r
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 
 %check
-%{__python2} -m unittest discover ironic_inspector.test
+%{__python2} -m unittest discover ironic_inspector.test.unit
 
 %files
 %doc README.rst
