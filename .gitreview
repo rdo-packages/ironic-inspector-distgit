@@ -1,5 +1,5 @@
 [gerrit]
-host=review.gerrithub.io
+host=review.rdoproject.org
 port=29418
-project=openstack-packages/ironic-inspector
+project=openstack/ironic-inspector-distgit
 defaultbranch=rpm-liberty
