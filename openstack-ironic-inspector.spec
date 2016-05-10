@@ -1,4 +1,4 @@
-%global pypi_name ironic-inspector
+%global service ironic-inspector
 %{!?upstream_version: %global upstream_version %{version}}
 
 Name:       openstack-ironic-inspector
@@ -8,7 +8,7 @@ Release:    XXX
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
-Source0:    https://pypi.python.org/packages/source/i/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:    https://pypi.python.org/packages/source/i/%{service}/%{service}-%{version}.tar.gz
 Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
@@ -92,7 +92,7 @@ Summary:    Documentation for Ironic Inspector.
 Documentation for Ironic Inspector.
 
 %prep
-%autosetup -v -p 1 -n %{pypi_name}-%{upstream_version}
+%autosetup -v -p 1 -n %{service}-%{upstream_version}
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
 rm -rf {test-,plugin-,}requirements.txt
