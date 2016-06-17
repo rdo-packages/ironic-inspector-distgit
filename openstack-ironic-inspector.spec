@@ -3,7 +3,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    3.2.1
+Version:    3.2.2
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -176,6 +176,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+* Fri Jun 17 2016 Haikel Guemar <hguemar@fedoraproject.org> 3.2.2-1
+- Update to 3.2.2
+
 * Thu May 26 2016 Haikel Guemar <hguemar@fedoraproject.org> 3.2.1-1
 - Update to 3.2.1
 
