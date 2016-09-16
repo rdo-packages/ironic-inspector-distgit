@@ -8,7 +8,7 @@ Release:    XXX
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
-Source0:    http://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz
+Source0:    https://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz
 Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
