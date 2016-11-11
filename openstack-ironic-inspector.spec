@@ -1,4 +1,5 @@
 %global service ironic-inspector
+%global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
 
 Name:       openstack-ironic-inspector
@@ -91,6 +92,15 @@ Summary:    Documentation for Ironic Inspector.
 %description -n openstack-ironic-inspector-doc
 Documentation for Ironic Inspector.
 
+%package -n python-%{service}-tests
+Summary:    %{service} Tempest plugin
+
+Requires:   %{name} = %{version}-%{release}
+Requires:   python-tempest >= 12.0.0
+
+%description -n python-%{service}-tests
+It contains the unit tests and tempest plugins
+
 %prep
 %autosetup -v -p 1 -n %{service}-%{upstream_version}
 # Remove the requirements file so that pbr hooks don't add it
@@ -103,6 +113,20 @@ rm -rf {test-,plugin-,}requirements.txt
 
 %install
 %{__python2} setup.py install --skip-build --root=%{buildroot}
+# Create fake egg-info for the tempest plugin
+egg_path=%{buildroot}%{python2_sitelib}/%{modulename}-*.egg-info
+tempest_egg_path=%{buildroot}%{python2_sitelib}/%{modulename}_tests.egg-info
+mkdir $tempest_egg_path
+grep "tempest\|Tempest" %{modulename}.egg-info/entry_points.txt >$tempest_egg_path/entry_points.txt
+cat > $tempest_egg_path/PKG-INFO <<EOF
+Metadata-Version: 1.1
+Name: %{modulename}_tests
+Version: %{upstream_version}
+Summary: %{summary} Tempest Plugin
+EOF
+# Remove any reference to Tempest plugin in the main package entry point
+sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+
 mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
 
@@ -141,7 +165,9 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %config(noreplace) %attr(-,root,ironic-inspector) %{_sysconfdir}/ironic-inspector
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-ironic-inspector
 %{_sysconfdir}/sudoers.d/ironic-inspector
-%{python2_sitelib}/ironic_inspector*
+%{python2_sitelib}/%{modulename}*
+%{python2_sitelib}/%{modulename}-*.egg-info
+%exclude %{python2_sitelib}/%{modulename}/test
 %{_bindir}/ironic-inspector
 %{_bindir}/ironic-inspector-rootwrap
 %{_bindir}/ironic-inspector-dbsync
@@ -155,6 +181,11 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %files -n openstack-ironic-inspector-doc
 %license LICENSE
 %doc CONTRIBUTING.rst doc/build/html
+
+%files -n python-%{service}-tests
+%license LICENSE
+%{python2_sitelib}/%{modulename}/test
+%{python2_sitelib}/%{modulename}_tests.egg-info
 
 %pre
 getent group ironic-inspector >/dev/null || groupadd -r ironic-inspector
