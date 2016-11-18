@@ -118,12 +118,8 @@ egg_path=%{buildroot}%{python2_sitelib}/%{modulename}-*.egg-info
 tempest_egg_path=%{buildroot}%{python2_sitelib}/%{modulename}_tests.egg-info
 mkdir $tempest_egg_path
 grep "tempest\|Tempest" %{modulename}.egg-info/entry_points.txt >$tempest_egg_path/entry_points.txt
-cat > $tempest_egg_path/PKG-INFO <<EOF
-Metadata-Version: 1.1
-Name: %{modulename}_tests
-Version: %{upstream_version}
-Summary: %{summary} Tempest Plugin
-EOF
+cp -r $egg_path/PKG-INFO $tempest_egg_path
+sed -i "s/%{service}/%{modulename}_tests/g" $tempest_egg_path/PKG-INFO
 # Remove any reference to Tempest plugin in the main package entry point
 sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
 
