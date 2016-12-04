@@ -114,14 +114,7 @@ rm -rf {test-,plugin-,}requirements.txt
 %install
 %{__python2} setup.py install --skip-build --root=%{buildroot}
 # Create fake egg-info for the tempest plugin
-egg_path=%{buildroot}%{python2_sitelib}/%{modulename}-*.egg-info
-tempest_egg_path=%{buildroot}%{python2_sitelib}/%{modulename}_tests.egg-info
-mkdir $tempest_egg_path
-grep "tempest\|Tempest" %{modulename}.egg-info/entry_points.txt >$tempest_egg_path/entry_points.txt
-cp -r $egg_path/PKG-INFO $tempest_egg_path
-sed -i "s/%{service}/%{modulename}_tests/g" $tempest_egg_path/PKG-INFO
-# Remove any reference to Tempest plugin in the main package entry point
-sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+%py2_entrypoint %{modulename} %{service}
 
 mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
@@ -161,7 +154,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %config(noreplace) %attr(-,root,ironic-inspector) %{_sysconfdir}/ironic-inspector
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-ironic-inspector
 %{_sysconfdir}/sudoers.d/ironic-inspector
-%{python2_sitelib}/%{modulename}*
+%{python2_sitelib}/%{modulename}
 %{python2_sitelib}/%{modulename}-*.egg-info
 %exclude %{python2_sitelib}/%{modulename}/test
 %{_bindir}/ironic-inspector
@@ -173,6 +166,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector/ramdisk/
 %doc %{_mandir}/man8/ironic-inspector.8.gz
+%exclude %{python2_sitelib}/%{modulename}_tests.egg-info
 
 %files -n openstack-ironic-inspector-doc
 %license LICENSE
