@@ -4,7 +4,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    4.2.0
+Version:    4.2.1
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -121,7 +121,7 @@ grep "tempest\|Tempest" %{modulename}.egg-info/entry_points.txt >$tempest_egg_pa
 cat > $tempest_egg_path/PKG-INFO <<EOF
 Metadata-Version: 1.1
 Name: %{modulename}_tests
-Version: %{upstream_version}
+Version: 4.2.1
 Summary: %{summary} Tempest Plugin
 EOF
 # Remove any reference to Tempest plugin in the main package entry point
@@ -207,6 +207,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+* Mon Dec 05 2016 Alfredo Moralejo <amoralej@redhat.com> 4.2.1-1
+- Update to 4.2.1
+
 * Thu Sep 22 2016 Haikel Guemar <hguemar@fedoraproject.org> 4.2.0-1
 - Update to 4.2.0
 
