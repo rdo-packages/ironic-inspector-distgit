@@ -23,46 +23,59 @@ BuildRequires: python-pbr
 BuildRequires: systemd
 # All these are required to run tests during check step
 BuildRequires: python-mock
+BuildRequires: python-alembic
+BuildRequires: python-automaton
 BuildRequires: python-babel
 BuildRequires: python-eventlet
 BuildRequires: python-fixtures
 BuildRequires: python-flask
 BuildRequires: python-futurist
+BuildRequires: python-ironic-lib
 BuildRequires: python-ironicclient
 BuildRequires: python-jsonpath-rw
 BuildRequires: python-jsonschema
+BuildRequires: python-keystoneauth1
 BuildRequires: python-keystoneclient
 BuildRequires: python-keystonemiddleware
+BuildRequires: python-netaddr
 BuildRequires: python-oslo-concurrency
 BuildRequires: python-oslo-config
 BuildRequires: python-oslo-db
 BuildRequires: python-oslo-i18n
 BuildRequires: python-oslo-log
 BuildRequires: python-oslo-middleware
+BuildRequires: python-oslo-serialization
 BuildRequires: python-oslo-sphinx
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslotest
 BuildRequires: python-six
 BuildRequires: python-sphinx
+BuildRequires: python-sqlalchemy
 BuildRequires: python-stevedore
 BuildRequires: python-swiftclient
 BuildRequires: python-testscenarios
 BuildRequires: python-testresources
+BuildRequires: pytz
 
 Requires: dnsmasq
 Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
 
+Requires: python-alembic
+Requires: python-automaton
 Requires: python-babel
 Requires: python-eventlet
 Requires: python-flask
 Requires: python-futurist
+Requires: python-ironic-lib
 Requires: python-ironicclient
 Requires: python-jsonpath-rw
 Requires: python-jsonschema
+Requires: python-keystoneauth1
 Requires: python-keystoneclient
 Requires: python-keystonemiddleware
+Requires: python-netaddr
 Requires: python-oslo-concurrency
 Requires: python-oslo-config
 Requires: python-oslo-db
@@ -70,10 +83,13 @@ Requires: python-oslo-i18n
 Requires: python-oslo-log
 Requires: python-oslo-middleware
 Requires: python-oslo-rootwrap
+Requires: python-oslo-serialization
 Requires: python-oslo-utils
 Requires: python-six
+Requires: python-sqlalchemy
 Requires: python-stevedore
 Requires: python-swiftclient
+Requires: pytz
 
 Obsoletes: openstack-ironic-discoverd < 1.1.1
 Provides: openstack-ironic-discoverd = %{upstream_version}
