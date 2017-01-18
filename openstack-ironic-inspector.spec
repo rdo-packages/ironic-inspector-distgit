@@ -18,6 +18,7 @@ Source5:    ironic-inspector.logrotate
 Source6:    ironic-inspector-dist.conf
 
 BuildArch:  noarch
+BuildRequires: openstack-macros
 BuildRequires: python2-devel
 BuildRequires: python-pbr
 BuildRequires: systemd
