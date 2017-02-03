@@ -214,3 +214,4 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=b455e238cd3efa12c40f91c22ac3e32f80bfc0da
