@@ -27,6 +27,7 @@ BuildRequires: python-mock
 BuildRequires: python-alembic
 BuildRequires: python-automaton
 BuildRequires: python-babel
+BuildRequires: python-construct
 BuildRequires: python-eventlet
 BuildRequires: python-fixtures
 BuildRequires: python-flask
@@ -66,6 +67,7 @@ Requires(postun): systemd
 Requires: python-alembic
 Requires: python-automaton
 Requires: python-babel
+Requires: python-construct >= 2.8.10
 Requires: python-eventlet
 Requires: python-flask
 Requires: python-futurist
