@@ -131,7 +131,8 @@ mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
 
 # logs configuration
-mkdir -p %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk/
+install -d -m 750 %{buildroot}%{_localstatedir}/log/ironic-inspector
+install -d -m 750 %{buildroot}%{_localstatedir}/log/ironic-inspector/ramdisk
 install -p -D -m 644 %{SOURCE5} %{buildroot}%{_sysconfdir}/logrotate.d/openstack-ironic-inspector
 
 # install systemd scripts
