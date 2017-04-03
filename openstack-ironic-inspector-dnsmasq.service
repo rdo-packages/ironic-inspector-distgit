@@ -1,6 +1,6 @@
 [Unit]
 Description=PXE boot dnsmasq service for Ironic Inspector
-After=openvswitch.service
+After=openvswitch.service network.target
 
 [Service]
 Type=forking
