@@ -37,7 +37,6 @@ BuildRequires: python-ironicclient
 BuildRequires: python-jsonpath-rw
 BuildRequires: python-jsonschema
 BuildRequires: python-keystoneauth1
-BuildRequires: python-keystoneclient
 BuildRequires: python-keystonemiddleware
 BuildRequires: python-netaddr
 BuildRequires: python-oslo-concurrency
@@ -64,6 +63,7 @@ Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
 
+Requires: python-pbr
 Requires: python-alembic
 Requires: python-automaton
 Requires: python-babel
@@ -72,22 +72,21 @@ Requires: python-eventlet
 Requires: python-flask
 Requires: python-futurist
 Requires: python-ironic-lib >= 2.5.0
-Requires: python-ironicclient >= 1.11.0
+Requires: python-ironicclient >= 1.14.0
 Requires: python-jsonpath-rw
 Requires: python-jsonschema
-Requires: python-keystoneauth1 >= 2.18.0
-Requires: python-keystoneclient
+Requires: python-keystoneauth1 >= 3.1.0
 Requires: python-keystonemiddleware >= 4.12.0
 Requires: python-netaddr
 Requires: python-oslo-concurrency >= 3.8.0
-Requires: python-oslo-config >= 2:3.14.0
-Requires: python-oslo-db >= 4.15.0
+Requires: python-oslo-config >= 2:4.0.0
+Requires: python-oslo-db >= 4.24.0
 Requires: python-oslo-i18n >= 2.1.0
-Requires: python-oslo-log >= 3.11.0
-Requires: python-oslo-middleware >= 3.0.0
+Requires: python-oslo-log >= 3.22.0
+Requires: python-oslo-middleware >= 3.27.0
 Requires: python-oslo-rootwrap >= 5.0.0
 Requires: python-oslo-serialization >= 1.10.0
-Requires: python-oslo-utils >= 3.18.0
+Requires: python-oslo-utils >= 3.20.0
 Requires: python-six
 Requires: python-sqlalchemy
 Requires: python-stevedore
