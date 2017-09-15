@@ -59,9 +59,7 @@ BuildRequires: python-testresources
 BuildRequires: pytz
 
 Requires: dnsmasq
-Requires(post): systemd
-Requires(preun): systemd
-Requires(postun): systemd
+%{?systemd_requires}
 
 Requires: python-pbr
 Requires: python-alembic
