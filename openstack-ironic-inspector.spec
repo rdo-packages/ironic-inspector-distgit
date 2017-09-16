@@ -123,7 +123,7 @@ It contains the unit tests and tempest plugins
 %autosetup -v -p 1 -n %{service}-%{upstream_version}
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
-rm -rf {test-,plugin-,}requirements.txt
+%py_req_cleanup
 
 %build
 %{__python2} setup.py build
