@@ -16,6 +16,24 @@
       "revId": "4edca5df09f98b21e4f34c61ff6442ce2507afa3",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa81d914_b092a09d",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2017-09-28T08:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa81d914_b06460e6",
+      "revId": "4edca5df09f98b21e4f34c61ff6442ce2507afa3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
