@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa81d914_b06460e6",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-09-28T08:31:50Z",
+      "side": 1,
+      "message": "build_sphinx should be ini a with_doc conditional too.",
+      "revId": "4edca5df09f98b21e4f34c61ff6442ce2507afa3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
