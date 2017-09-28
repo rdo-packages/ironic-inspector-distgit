@@ -2,6 +2,8 @@
 %global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
 
+%global with_doc 1
+
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
 Version:    5.0.2
@@ -47,11 +49,9 @@ BuildRequires: python-oslo-i18n
 BuildRequires: python-oslo-log
 BuildRequires: python-oslo-middleware
 BuildRequires: python-oslo-serialization
-BuildRequires: python-oslo-sphinx
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslotest
 BuildRequires: python-six
-BuildRequires: python-sphinx
 BuildRequires: python-sqlalchemy
 BuildRequires: python-stevedore
 BuildRequires: python-swiftclient
@@ -105,11 +105,16 @@ properties discovery is a process of getting hardware parameters required for
 scheduling from a bare metal node, given it’s power management credentials
 (e.g. IPMI address, user name and password).
 
+%if 0%{?with_doc}
 %package -n openstack-ironic-inspector-doc
 Summary:    Documentation for Ironic Inspector.
 
+BuildRequires: python-sphinx
+BuildRequires: python-oslo-sphinx
+
 %description -n openstack-ironic-inspector-doc
 Documentation for Ironic Inspector.
+%endif
 
 %package -n python-%{service}-tests
 Summary:    %{service} Tempest plugin
@@ -128,7 +133,9 @@ rm -rf {test-,plugin-,}requirements.txt
 
 %build
 %{__python2} setup.py build
-%{__python2} setup.py build_sphinx
+%if 0%{?with_doc}
+%{__python2} setup.py build_sphinx -b html
+%endif
 
 %install
 %{__python2} setup.py install --skip-build --root=%{buildroot}
@@ -188,9 +195,11 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %doc %{_mandir}/man8/ironic-inspector.8.gz
 %exclude %{python2_sitelib}/%{modulename}_tests.egg-info
 
+%if 0%{?with_doc}
 %files -n openstack-ironic-inspector-doc
 %license LICENSE
 %doc CONTRIBUTING.rst doc/build/html
+%endif
 
 %files -n python-%{service}-tests
 %license LICENSE
