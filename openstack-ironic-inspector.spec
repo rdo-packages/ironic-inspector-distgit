@@ -43,10 +43,12 @@ BuildRequires: python-keystonemiddleware
 BuildRequires: python-netaddr
 BuildRequires: python-oslo-concurrency
 BuildRequires: python-oslo-config
+BuildRequires: python-oslo-context
 BuildRequires: python-oslo-db
 BuildRequires: python-oslo-i18n
 BuildRequires: python-oslo-log
 BuildRequires: python-oslo-middleware
+BuildRequires: python-oslo-policy
 BuildRequires: python-oslo-serialization
 BuildRequires: python-oslo-utils
 BuildRequires: python-oslotest
@@ -78,10 +80,12 @@ Requires: python-keystonemiddleware >= 4.12.0
 Requires: python-netaddr
 Requires: python-oslo-concurrency >= 3.8.0
 Requires: python-oslo-config >= 2:4.0.0
+Requires: python-oslo-context >= 2.14.0
 Requires: python-oslo-db >= 4.24.0
 Requires: python-oslo-i18n >= 2.1.0
 Requires: python-oslo-log >= 3.22.0
 Requires: python-oslo-middleware >= 3.27.0
+Requires: python-oslo-policy >= 1.23.0
 Requires: python-oslo-rootwrap >= 5.0.0
 Requires: python-oslo-serialization >= 1.10.0
 Requires: python-oslo-utils >= 3.20.0
@@ -223,3 +227,4 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=15ebcf32ce802baeeeffae421db3e5582cce9783
