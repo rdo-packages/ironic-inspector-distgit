@@ -170,8 +170,11 @@ mkdir -p %{buildroot}%{_sysconfdir}/ironic-inspector/rootwrap.d
 install -p -D -m 640 rootwrap.conf %{buildroot}/%{_sysconfdir}/ironic-inspector/rootwrap.conf
 install -p -D -m 640 rootwrap.d/* %{buildroot}/%{_sysconfdir}/ironic-inspector/rootwrap.d/
 
-# shared state directory for sqlite database
+# shared state directory
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
+
+# shared state directory for the dnsmasq PXE filter and the dnsmasq service
+mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 
 %check
 %{__python2} -m unittest discover ironic_inspector.test.unit
@@ -191,6 +194,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 %{_unitdir}/openstack-ironic-inspector.service
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
+%attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector/ramdisk/
 %doc %{_mandir}/man8/ironic-inspector.8.gz
