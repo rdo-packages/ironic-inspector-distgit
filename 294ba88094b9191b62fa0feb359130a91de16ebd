@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7be1f8_fde30b31",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2017-12-01T10:57:55Z",
+      "side": 1,
+      "message": "nit: this command is redundant now, mkdir -p below covers it",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 56
+      },
+      "revId": "294ba88094b9191b62fa0feb359130a91de16ebd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
