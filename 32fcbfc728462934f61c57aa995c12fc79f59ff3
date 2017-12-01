@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7be1f8_fd8ceb81",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2017-12-01T10:46:33Z",
+      "side": 1,
+      "message": "while you\u0027re on it, please update this",
+      "range": {
+        "startLine": 173,
+        "startChar": 25,
+        "endLine": 173,
+        "endChar": 44
+      },
+      "revId": "32fcbfc728462934f61c57aa995c12fc79f59ff3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba7be1f8_dd8f2774",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2017-12-01T10:46:33Z",
+      "side": 1,
+      "message": "I think you need to explicitly create it here",
+      "revId": "32fcbfc728462934f61c57aa995c12fc79f59ff3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
