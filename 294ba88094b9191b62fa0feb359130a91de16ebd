@@ -22,6 +22,30 @@
       "revId": "294ba88094b9191b62fa0feb359130a91de16ebd",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa963961_a29d5e5b",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 111
+      },
+      "writtenOn": "2018-01-05T15:56:40Z",
+      "side": 0,
+      "message": "Nope, It was a workaround, i have added to fix the historical tempest plugin issues which leads the birth of tempest plugin split goal.",
+      "parentUuid": "fa963961_4276923f",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 47
+      },
+      "revId": "294ba88094b9191b62fa0feb359130a91de16ebd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
