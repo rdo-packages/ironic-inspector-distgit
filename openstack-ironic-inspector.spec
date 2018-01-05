@@ -121,10 +121,9 @@ Documentation for Ironic Inspector.
 Summary:    %{service} Tempest plugin
 
 Requires:   %{name} = %{version}-%{release}
-Requires:   python-tempest >= 12.0.0
 
 %description -n python-%{service}-tests
-It contains the unit tests and tempest plugins
+It contains the unit tests and plugins.
 
 %prep
 %autosetup -v -p 1 -n %{service}-%{upstream_version}
@@ -140,8 +139,6 @@ It contains the unit tests and tempest plugins
 
 %install
 %{__python2} setup.py install --skip-build --root=%{buildroot}
-# Create fake egg-info for the tempest plugin
-%py2_entrypoint %{modulename} %{service}
 
 mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
@@ -209,7 +206,6 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 %files -n python-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{modulename}/test
-%{python2_sitelib}/%{modulename}_tests.egg-info
 
 %pre
 getent group ironic-inspector >/dev/null || groupadd -r ironic-inspector
@@ -231,4 +227,3 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
-# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=15ebcf32ce802baeeeffae421db3e5582cce9783
