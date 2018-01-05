@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa963961_4276923f",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2018-01-05T15:52:13Z",
+      "side": 0,
+      "message": "is it really not required any more?",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 47
+      },
+      "revId": "294ba88094b9191b62fa0feb359130a91de16ebd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}

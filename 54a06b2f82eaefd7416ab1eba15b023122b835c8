@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa963961_e293664e",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2018-01-05T15:52:13Z",
+      "side": 1,
+      "message": "I think \"and plugins\" should be removed",
+      "range": {
+        "startLine": 126,
+        "startChar": 26,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "54a06b2f82eaefd7416ab1eba15b023122b835c8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
