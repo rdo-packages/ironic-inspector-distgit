@@ -232,3 +232,4 @@ exit 0
 
 %changelog
 # REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=15ebcf32ce802baeeeffae421db3e5582cce9783
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=d7e18416805f699f9e259f30a9f98aa06ccb9499
