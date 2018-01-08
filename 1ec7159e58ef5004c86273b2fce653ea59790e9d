@@ -1,0 +1,9 @@
+Code-Review+2: dtantsur <divius.inside@gmail.com>
+Code-Review+1: Yatin Karel <ykarel@redhat.com>
+Workflow+1: dtantsur <divius.inside@gmail.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Mon, 08 Jan 2018 09:42:19 +0000
+Reviewed-on: https://review.rdoproject.org/r/11189
+Project: openstack/ironic-inspector-distgit
+Branch: refs/heads/rpm-master
