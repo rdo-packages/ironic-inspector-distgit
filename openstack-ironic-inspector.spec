@@ -157,8 +157,13 @@ install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}
 mkdir -p %{buildroot}%{_sysconfdir}/sudoers.d
 install -p -D -m 440 %{SOURCE4} %{buildroot}%{_sysconfdir}/sudoers.d/ironic-inspector
 
+# generate example configuration files
+export PYTHONPATH=.
+oslo-config-generator --config-file config-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
+oslopolicy-sample-generator --config-file policy-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/policy.json
+
 # configuration contains passwords, thus 640
-install -p -D -m 640 example.conf %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
+chmod 0640 %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
 install -p -D -m 640 %{SOURCE6} %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector-dist.conf
 install -p -D -m 644 %{SOURCE3} %{buildroot}/%{_sysconfdir}/ironic-inspector/dnsmasq.conf
 
