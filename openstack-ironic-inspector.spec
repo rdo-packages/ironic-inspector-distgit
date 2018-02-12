@@ -22,77 +22,77 @@ Source6:    ironic-inspector-dist.conf
 BuildArch:  noarch
 BuildRequires: openstack-macros
 BuildRequires: python2-devel
-BuildRequires: python-pbr
+BuildRequires: python2-pbr
 BuildRequires: systemd
 # All these are required to run tests during check step
-BuildRequires: python-mock
-BuildRequires: python-alembic
-BuildRequires: python-automaton
-BuildRequires: python-babel
-BuildRequires: python-construct
-BuildRequires: python-eventlet
-BuildRequires: python-fixtures
-BuildRequires: python-flask
-BuildRequires: python-futurist
-BuildRequires: python-ironic-lib
-BuildRequires: python-ironicclient
-BuildRequires: python-jsonpath-rw
-BuildRequires: python-jsonschema
-BuildRequires: python-keystoneauth1
-BuildRequires: python-keystonemiddleware
-BuildRequires: python-netaddr
-BuildRequires: python-oslo-concurrency
-BuildRequires: python-oslo-config
-BuildRequires: python-oslo-context
-BuildRequires: python-oslo-db
-BuildRequires: python-oslo-i18n
-BuildRequires: python-oslo-log
-BuildRequires: python-oslo-middleware
-BuildRequires: python-oslo-policy
-BuildRequires: python-oslo-serialization
-BuildRequires: python-oslo-utils
-BuildRequires: python-oslotest
-BuildRequires: python-six
-BuildRequires: python-sqlalchemy
-BuildRequires: python-stevedore
-BuildRequires: python-swiftclient
-BuildRequires: python-testscenarios
-BuildRequires: python-testresources
+BuildRequires: python2-mock
+BuildRequires: python2-alembic
+BuildRequires: python2-automaton
+BuildRequires: python2-babel
+BuildRequires: python2-construct
+BuildRequires: python2-eventlet
+BuildRequires: python2-fixtures
+BuildRequires: python2-flask
+BuildRequires: python2-futurist
+BuildRequires: python2-ironic-lib
+BuildRequires: python2-ironicclient
+BuildRequires: python2-jsonpath-rw
+BuildRequires: python2-jsonschema
+BuildRequires: python2-keystoneauth1
+BuildRequires: python2-keystonemiddleware
+BuildRequires: python2-netaddr
+BuildRequires: python2-oslo-concurrency
+BuildRequires: python2-oslo-config
+BuildRequires: python2-oslo-context
+BuildRequires: python2-oslo-db
+BuildRequires: python2-oslo-i18n
+BuildRequires: python2-oslo-log
+BuildRequires: python2-oslo-middleware
+BuildRequires: python2-oslo-policy
+BuildRequires: python2-oslo-serialization
+BuildRequires: python2-oslo-utils
+BuildRequires: python2-oslotest
+BuildRequires: python2-six
+BuildRequires: python2-sqlalchemy
+BuildRequires: python2-stevedore
+BuildRequires: python2-swiftclient
+BuildRequires: python2-testscenarios
+BuildRequires: python2-testresources
 BuildRequires: pytz
 
 Requires: dnsmasq
 %{?systemd_requires}
 
-Requires: python-pbr
-Requires: python-alembic
-Requires: python-automaton
-Requires: python-babel
-Requires: python-construct >= 2.8.10
-Requires: python-eventlet
-Requires: python-flask
-Requires: python-futurist
-Requires: python-ironic-lib >= 2.5.0
-Requires: python-ironicclient >= 1.14.0
-Requires: python-jsonpath-rw
-Requires: python-jsonschema
-Requires: python-keystoneauth1 >= 3.1.0
-Requires: python-keystonemiddleware >= 4.12.0
-Requires: python-netaddr
-Requires: python-oslo-concurrency >= 3.8.0
-Requires: python-oslo-config >= 2:4.0.0
-Requires: python-oslo-context >= 2.14.0
-Requires: python-oslo-db >= 4.24.0
-Requires: python-oslo-i18n >= 2.1.0
-Requires: python-oslo-log >= 3.22.0
-Requires: python-oslo-middleware >= 3.27.0
-Requires: python-oslo-policy >= 1.23.0
-Requires: python-oslo-rootwrap >= 5.0.0
-Requires: python-oslo-serialization >= 1.10.0
-Requires: python-oslo-utils >= 3.20.0
-Requires: python-six
-Requires: python-sqlalchemy
-Requires: python-stevedore
-Requires: python-swiftclient >= 3.2.0
+Requires: python2-pbr
+Requires: python2-alembic
+Requires: python2-automaton
+Requires: python2-babel
+Requires: python2-construct >= 2.8.10
+Requires: python2-eventlet
+Requires: python2-flask
+Requires: python2-futurist
+Requires: python2-ironic-lib >= 2.5.0
+Requires: python2-ironicclient >= 1.14.0
+Requires: python2-jsonpath-rw
+Requires: python2-jsonschema
+Requires: python2-keystoneauth1 >= 3.3.0
+Requires: python2-keystonemiddleware >= 4.12.0
+Requires: python2-netaddr
+Requires: python2-oslo-concurrency >= 3.25.0
+Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-oslo-context >= 2.19.2
+Requires: python2-oslo-db >= 4.27.0
+Requires: python2-oslo-i18n >= 3.15.3
+Requires: python2-oslo-log >= 3.36.0
+Requires: python2-oslo-middleware >= 3.31.0
+Requires: python2-oslo-policy >= 1.30.0
+Requires: python2-oslo-rootwrap >= 5.0.0
+Requires: python2-oslo-serialization >= 2.18.0
+Requires: python2-oslo-utils >= 3.33.0
+Requires: python2-six
+Requires: python2-sqlalchemy
+Requires: python2-stevedore
+Requires: python2-swiftclient >= 3.2.0
 Requires: pytz
 
 Obsoletes: openstack-ironic-discoverd < 1.1.1
@@ -110,19 +110,20 @@ scheduling from a bare metal node, given it’s power management credentials
 %package -n openstack-ironic-inspector-doc
 Summary:    Documentation for Ironic Inspector.
 
-BuildRequires: python-sphinx
-BuildRequires: python-oslo-sphinx
+BuildRequires: python2-sphinx
+BuildRequires: python2-oslo-sphinx
 
 %description -n openstack-ironic-inspector-doc
 Documentation for Ironic Inspector.
 %endif
 
-%package -n python-%{service}-tests
+%package -n python2-%{service}-tests
 Summary:    %{service} Unit Tests
+%{?python_provide:%python_provide python2-%{service}-tests}
 
 Requires:   %{name} = %{version}-%{release}
 
-%description -n python-%{service}-tests
+%description -n python2-%{service}-tests
 It contains the unit tests
 
 %prep
@@ -209,7 +210,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 %doc CONTRIBUTING.rst doc/build/html
 %endif
 
-%files -n python-%{service}-tests
+%files -n python2-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{modulename}/test
 
