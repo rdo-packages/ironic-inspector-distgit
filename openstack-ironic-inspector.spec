@@ -52,6 +52,7 @@ BuildRequires: python2-oslo-policy
 BuildRequires: python2-oslo-serialization
 BuildRequires: python2-oslo-utils
 BuildRequires: python2-oslotest
+BuildRequires: python-retrying
 BuildRequires: python2-six
 BuildRequires: python2-sqlalchemy
 BuildRequires: python2-stevedore
@@ -89,6 +90,7 @@ Requires: python2-oslo-policy >= 1.30.0
 Requires: python2-oslo-rootwrap >= 5.8.0
 Requires: python2-oslo-serialization >= 2.18.0
 Requires: python2-oslo-utils >= 3.33.0
+Requires: python-retrying >= 1.2.3
 Requires: python2-six
 Requires: python2-sqlalchemy
 Requires: python2-stevedore
