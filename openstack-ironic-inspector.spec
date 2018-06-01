@@ -47,6 +47,7 @@ BuildRequires: python2-oslo-context
 BuildRequires: python2-oslo-db
 BuildRequires: python2-oslo-i18n
 BuildRequires: python2-oslo-log
+BuildRequires: python2-oslo-messaging
 BuildRequires: python2-oslo-middleware
 BuildRequires: python2-oslo-policy
 BuildRequires: python2-oslo-serialization
@@ -85,6 +86,7 @@ Requires: python2-oslo-context >= 2.19.2
 Requires: python2-oslo-db >= 4.27.0
 Requires: python2-oslo-i18n >= 3.15.3
 Requires: python2-oslo-log >= 3.36.0
+Requires: python2-oslo-messaging >= 5.32.0
 Requires: python2-oslo-middleware >= 3.31.0
 Requires: python2-oslo-policy >= 1.30.0
 Requires: python2-oslo-rootwrap >= 5.8.0
