@@ -74,14 +74,14 @@ Requires: python2-eventlet
 Requires: python-flask
 Requires: python2-futurist
 Requires: python-ironic-lib >= 2.5.0
-Requires: python2-ironicclient >= 1.14.0
+Requires: python2-ironicclient >= 2.3.0
 Requires: python-jsonpath-rw
 Requires: python2-jsonschema
-Requires: python2-keystoneauth1 >= 3.3.0
+Requires: python2-keystoneauth1 >= 3.4.0
 Requires: python2-keystonemiddleware >= 4.17.0
 Requires: python2-netaddr
-Requires: python2-oslo-concurrency >= 3.25.0
-Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-oslo-concurrency >= 3.26.0
+Requires: python2-oslo-config >= 2:5.2.0
 Requires: python2-oslo-context >= 2.19.2
 Requires: python2-oslo-db >= 4.27.0
 Requires: python2-oslo-i18n >= 3.15.3
