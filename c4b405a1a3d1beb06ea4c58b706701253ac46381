@@ -1,0 +1,8 @@
+Code-Review+2: dtantsur <divius.inside@gmail.com>
+Workflow+1: dtantsur <divius.inside@gmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 20 Aug 2018 09:49:55 +0000
+Reviewed-on: https://review.rdoproject.org/r/15660
+Project: openstack/ironic-inspector-distgit
+Branch: refs/heads/rocky-rdo
