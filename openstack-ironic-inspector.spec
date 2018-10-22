@@ -197,8 +197,8 @@ install -p -D -m 440 %{SOURCE4} %{buildroot}%{_sysconfdir}/sudoers.d/ironic-insp
 # generate example configuration files
 install -d -m 750 %{buildroot}%{_sysconfdir}/ironic-inspector
 export PYTHONPATH=.
-oslo-config-generator-%{pyver} --config-file config-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
-oslopolicy-sample-generator-%{pyver} --config-file policy-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/policy.json
+oslo-config-generator-%{pyver} --config-file tools/config-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
+oslopolicy-sample-generator-%{pyver} --config-file tools/policy-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/policy.json
 
 # configuration contains passwords, thus 640
 chmod 0640 %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
