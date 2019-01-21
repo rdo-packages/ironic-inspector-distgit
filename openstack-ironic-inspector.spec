@@ -8,7 +8,7 @@
 %global pyver_sitelib %python%{pyver}_sitelib
 %global pyver_install %py%{pyver}_install
 %global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
+# End of macros for py2/py3 compatibility 
 %global service ironic-inspector
 %global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
