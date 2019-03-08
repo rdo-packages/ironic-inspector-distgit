@@ -34,6 +34,7 @@ BuildArch:  noarch
 BuildRequires: openstack-macros
 BuildRequires: python%{pyver}-devel
 BuildRequires: python%{pyver}-pbr
+BuildRequires: python%{pyver}-stestr
 BuildRequires: systemd
 # All these are required to run tests during check step
 BuildRequires: python%{pyver}-mock
@@ -217,7 +218,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 
 %check
-%{pyver_bin} -m unittest discover ironic_inspector.test.unit
+stestr-%{pyver} run --test-path ironic_inspector.test.unit
 
 %files
 %doc README.rst
@@ -231,6 +232,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 %{_bindir}/ironic-inspector
 %{_bindir}/ironic-inspector-rootwrap
 %{_bindir}/ironic-inspector-dbsync
+%{_bindir}/ironic-inspector-migrate-data
 %{_unitdir}/openstack-ironic-inspector.service
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
