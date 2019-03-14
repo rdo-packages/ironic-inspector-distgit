@@ -93,6 +93,7 @@ Requires: python%{pyver}-oslo-middleware >= 3.31.0
 Requires: python%{pyver}-oslo-policy >= 1.30.0
 Requires: python%{pyver}-oslo-rootwrap >= 5.8.0
 Requires: python%{pyver}-oslo-serialization >= 2.18.0
+Requires: python%{pyver}-oslo-service >= 1.24.0
 Requires: python%{pyver}-oslo-utils >= 3.33.0
 Requires: python%{pyver}-six
 Requires: python%{pyver}-sqlalchemy
