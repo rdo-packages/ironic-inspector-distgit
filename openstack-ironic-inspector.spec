@@ -219,7 +219,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 
 %check
-stestr-%{pyver} run --test-path ironic_inspector.test.unit
+PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 
 %files
 %doc README.rst
