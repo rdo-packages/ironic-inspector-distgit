@@ -279,3 +279,4 @@ exit 0
 * Fri Mar 22 2019 RDO <dev@lists.rdoproject.org> 8.2.0-1
 - Update to 8.2.0
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=7e7a729519de0df7c2f98c312bd4bdb18e3511d6
