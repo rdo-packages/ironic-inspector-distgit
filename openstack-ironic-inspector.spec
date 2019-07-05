@@ -64,7 +64,7 @@ BuildRequires: python%{pyver}-oslotest
 BuildRequires: python%{pyver}-six
 BuildRequires: python%{pyver}-sqlalchemy
 BuildRequires: python%{pyver}-stevedore
-BuildRequires: python%{pyver}-swiftclient
+BuildRequires: python%{pyver}-openstacksdk
 BuildRequires: python%{pyver}-testscenarios
 BuildRequires: python%{pyver}-testresources
 
@@ -98,7 +98,7 @@ Requires: python%{pyver}-oslo-utils >= 3.33.0
 Requires: python%{pyver}-six
 Requires: python%{pyver}-sqlalchemy
 Requires: python%{pyver}-stevedore
-Requires: python%{pyver}-swiftclient >= 3.2.0
+Requires: python%{pyver}-openstacksdk >= 0.30.0
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -273,3 +273,4 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/ironic-inspector/commit/?id=2231f16952ec35e57b48ac794e953c2d719a2c92
