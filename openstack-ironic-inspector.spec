@@ -14,6 +14,9 @@
 %{!?upstream_version: %global upstream_version %{version}}
 
 %global with_doc 1
+# Temporary disable tests until mock gets updated in Fedora and then in CBS
+# https://bugzilla.redhat.com/show_bug.cgi?id=1721075
+%global with_tests 0
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
@@ -64,7 +67,7 @@ BuildRequires: python%{pyver}-oslotest
 BuildRequires: python%{pyver}-six
 BuildRequires: python%{pyver}-sqlalchemy
 BuildRequires: python%{pyver}-stevedore
-BuildRequires: python%{pyver}-swiftclient
+BuildRequires: python%{pyver}-openstacksdk
 BuildRequires: python%{pyver}-testscenarios
 BuildRequires: python%{pyver}-testresources
 
@@ -98,7 +101,7 @@ Requires: python%{pyver}-oslo-utils >= 3.33.0
 Requires: python%{pyver}-six
 Requires: python%{pyver}-sqlalchemy
 Requires: python%{pyver}-stevedore
-Requires: python%{pyver}-swiftclient >= 3.2.0
+Requires: python%{pyver}-openstacksdk >= 0.30.0
 
 # Handle python2 exception
 %if %{pyver} == 2
@@ -218,8 +221,11 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector
 # shared state directory for the dnsmasq PXE filter and the dnsmasq service
 mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 
+
 %check
+%if 0%{?with_tests}
 PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
+%endif
 
 %files
 %doc README.rst
