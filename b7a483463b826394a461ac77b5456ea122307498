@@ -1,0 +1,10 @@
+Code-Review+1: Sagi Shnaidman <sshnaidm@redhat.com>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Code-Review+2: Dmitry Tantsur <dtantsur@protonmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 08 Jul 2019 08:05:47 +0000
+Reviewed-on: https://review.rdoproject.org/r/21374
+Project: openstack/ironic-inspector-distgit
+Branch: refs/heads/rpm-master
