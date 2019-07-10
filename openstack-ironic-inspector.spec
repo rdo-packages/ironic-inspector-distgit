@@ -14,9 +14,7 @@
 %{!?upstream_version: %global upstream_version %{version}}
 
 %global with_doc 1
-# Temporary disable tests until mock gets updated in Fedora and then in CBS
-# https://bugzilla.redhat.com/show_bug.cgi?id=1721075
-%global with_tests 0
+%global with_tests 1
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
