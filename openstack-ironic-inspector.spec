@@ -38,7 +38,7 @@ BuildRequires: python%{pyver}-pbr
 BuildRequires: python%{pyver}-stestr
 BuildRequires: systemd
 # All these are required to run tests during check step
-BuildRequires: python%{pyver}-mock
+BuildRequires: python%{pyver}-mock >= 3.0.5
 BuildRequires: python%{pyver}-alembic
 BuildRequires: python%{pyver}-automaton
 BuildRequires: python%{pyver}-babel
