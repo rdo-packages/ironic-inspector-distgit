@@ -69,7 +69,6 @@ BuildRequires: python%{pyver}-openstacksdk
 BuildRequires: python%{pyver}-testscenarios
 BuildRequires: python%{pyver}-testresources
 
-Requires: dnsmasq
 %{?systemd_requires}
 
 Requires: python%{pyver}-pbr
@@ -156,6 +155,22 @@ BuildRequires: python%{pyver}-oslo-sphinx
 Documentation for Ironic Inspector.
 %endif
 
+%package -n openstack-ironic-inspector-dnsmasq
+Summary:    DHCP service for ironic-inspector using dnsmasq
+
+Requires:   %{name} = %{version}-%{release}
+Requires:   dnsmasq
+
+%description -n openstack-ironic-inspector-dnsmasq
+Ironic Inspector is an auxiliary service for discovering hardware properties
+for a node managed by OpenStack Ironic. Hardware introspection or hardware
+properties discovery is a process of getting hardware parameters required for
+scheduling from a bare metal node, given it’s power management credentials
+(e.g. IPMI address, user name and password).
+
+This package contains a dnsmasq service pre-configured for using with
+ironic-inspector.
+
 %package -n python%{pyver}-%{service}-tests
 Summary:    %{service} Unit Tests
 %{?python_provide:%python_provide python2-%{service}-tests}
@@ -239,7 +254,6 @@ PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 %{_bindir}/ironic-inspector-dbsync
 %{_bindir}/ironic-inspector-migrate-data
 %{_unitdir}/openstack-ironic-inspector.service
-%{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector
@@ -252,6 +266,10 @@ PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 %license LICENSE
 %doc CONTRIBUTING.rst doc/build/html
 %endif
+
+%files -n openstack-ironic-inspector-dnsmasq
+%license LICENSE
+%{_unitdir}/openstack-ironic-inspector-dnsmasq.service
 
 %files -n python%{pyver}-%{service}-tests
 %license LICENSE
@@ -266,14 +284,20 @@ exit 0
 
 %post
 %systemd_post openstack-ironic-inspector.service
+
+%post -n openstack-ironic-inspector-dnsmasq
 %systemd_post openstack-ironic-inspector-dnsmasq.service
 
 %preun
 %systemd_preun openstack-ironic-inspector.service
+
+%preun -n openstack-ironic-inspector-dnsmasq
 %systemd_preun openstack-ironic-inspector-dnsmasq.service
 
 %postun
 %systemd_postun_with_restart openstack-ironic-inspector.service
+
+%postun -n openstack-ironic-inspector-dnsmasq
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
