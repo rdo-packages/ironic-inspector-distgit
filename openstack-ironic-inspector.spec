@@ -17,7 +17,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    8.2.2
+Version:    8.2.3
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -273,6 +273,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-dnsmasq.service
 
 %changelog
+* Thu Aug 01 2019 RDO <dev@lists.rdoproject.org> 8.2.3-1
+- Update to 8.2.3
+
 * Fri Jun 14 2019 RDO <dev@lists.rdoproject.org> 8.2.2-1
 - Update to 8.2.2
 
