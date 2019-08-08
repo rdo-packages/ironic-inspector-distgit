@@ -22,6 +22,30 @@
       "revId": "06755323ac8da8325a43a8730d499b0e6001d20a",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a347fe95_3125073b",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2019-08-08T08:18:58Z",
+      "side": 1,
+      "message": "Yep, that was my plan, but I\u0027m open to better ideas.",
+      "parentUuid": "fea55e52_67002f92",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 58
+      },
+      "revId": "06755323ac8da8325a43a8730d499b0e6001d20a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
