@@ -68,6 +68,7 @@ BuildRequires: python%{pyver}-stevedore
 BuildRequires: python%{pyver}-openstacksdk
 BuildRequires: python%{pyver}-testscenarios
 BuildRequires: python%{pyver}-testresources
+BuildRequires: python%{pyver}-tooz
 
 Requires: dnsmasq
 %{?systemd_requires}
@@ -99,6 +100,7 @@ Requires: python%{pyver}-oslo-utils >= 3.33.0
 Requires: python%{pyver}-six
 Requires: python%{pyver}-sqlalchemy
 Requires: python%{pyver}-stevedore
+Requires: python%{pyver}-tooz >= 1.64.0
 Requires: python%{pyver}-openstacksdk >= 0.30.0
 
 # Handle python2 exception
