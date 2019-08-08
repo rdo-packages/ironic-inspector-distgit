@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fea55e52_67002f92",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2019-08-08T07:34:38Z",
+      "side": 1,
+      "message": "IIUC the plan is:\n\n- Merge this review and get it promoted.\n- Update deployment tools to intall both openstack-ironic-inspector + openstack-ironic-inspector-dnsmasq when dnsmasq is needed.\n- Remove this dependency.\n\nIs this correct?\n\nThere are other ways to do it but this is also fine.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 58
+      },
+      "revId": "06755323ac8da8325a43a8730d499b0e6001d20a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
