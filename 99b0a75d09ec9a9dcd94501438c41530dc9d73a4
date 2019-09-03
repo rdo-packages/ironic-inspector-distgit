@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "665e6534_790b45b2",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2019-09-03T14:44:53Z",
+      "side": 1,
+      "message": "We should have %post, %preun and %postun sections for the openstack-ironic-inspector-conductor subpackage here, since we are adding a unit file.",
+      "revId": "99b0a75d09ec9a9dcd94501438c41530dc9d73a4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
