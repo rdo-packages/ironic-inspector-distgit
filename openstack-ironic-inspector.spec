@@ -30,6 +30,7 @@ Source3:    dnsmasq.conf
 Source4:    ironic-inspector-rootwrap-sudoers
 Source5:    ironic-inspector.logrotate
 Source6:    ironic-inspector-dist.conf
+Source7:    openstack-ironic-inspector-conductor.service
 
 BuildArch:  noarch
 BuildRequires: openstack-macros
@@ -149,6 +150,9 @@ properties discovery is a process of getting hardware parameters required for
 scheduling from a bare metal node, given it’s power management credentials
 (e.g. IPMI address, user name and password).
 
+This package contains Python modules and an ironic-inspector service combining
+API and conductor in one binary.
+
 %if 0%{?with_doc}
 %package -n openstack-ironic-inspector-doc
 Summary:    Documentation for Ironic Inspector.
@@ -175,6 +179,36 @@ scheduling from a bare metal node, given it’s power management credentials
 
 This package contains a dnsmasq service pre-configured for using with
 ironic-inspector.
+
+%package -n openstack-ironic-inspector-conductor
+Summary:    Conductor service for Ironic Inspector.
+
+Requires:   %{name} = %{version}-%{release}
+
+%description -n openstack-ironic-inspector-conductor
+Ironic Inspector is an auxiliary service for discovering hardware properties
+for a node managed by OpenStack Ironic. Hardware introspection or hardware
+properties discovery is a process of getting hardware parameters required for
+scheduling from a bare metal node, given it’s power management credentials
+(e.g. IPMI address, user name and password).
+
+This package contains an ironic-inspector conductor service, which can be used
+to split ironic-inspector into API and conductor processes.
+
+%package -n openstack-ironic-inspector-api
+Summary:    WSGI service service for Ironic Inspector.
+
+Requires:   %{name} = %{version}-%{release}
+
+%description -n openstack-ironic-inspector-api
+Ironic Inspector is an auxiliary service for discovering hardware properties
+for a node managed by OpenStack Ironic. Hardware introspection or hardware
+properties discovery is a process of getting hardware parameters required for
+scheduling from a bare metal node, given it’s power management credentials
+(e.g. IPMI address, user name and password).
+
+This package contains an ironic-inspector WSGI service, which can be used
+to split ironic-inspector into API and conductor processes.
 
 %package -n python%{pyver}-%{service}-tests
 Summary:    %{service} Unit Tests
@@ -212,6 +246,7 @@ install -p -D -m 644 %{SOURCE5} %{buildroot}%{_sysconfdir}/logrotate.d/openstack
 mkdir -p %{buildroot}%{_unitdir}
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_unitdir}
+install -p -D -m 644 %{SOURCE7} %{buildroot}%{_unitdir}
 
 # install sudoers file
 mkdir -p %{buildroot}%{_sysconfdir}/sudoers.d
@@ -275,6 +310,15 @@ PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 %files -n openstack-ironic-inspector-dnsmasq
 %license LICENSE
 %{_unitdir}/openstack-ironic-inspector-dnsmasq.service
+
+%files -n openstack-ironic-inspector-conductor
+%license LICENSE
+%{_bindir}/ironic-inspector-conductor
+%{_unitdir}/openstack-ironic-inspector-conductor.service
+
+%files -n openstack-ironic-inspector-api
+%license LICENSE
+%{_bindir}/ironic-inspector-api-wsgi
 
 %files -n python%{pyver}-%{service}-tests
 %license LICENSE
