@@ -82,7 +82,7 @@ Requires: python%{pyver}-futurist
 Requires: python%{pyver}-ironicclient >= 2.3.0
 Requires: python%{pyver}-jsonschema
 Requires: python%{pyver}-keystoneauth1 >= 3.4.0
-Requires: python%{pyver}-keystonemiddleware >= 4.17.0
+Requires: python%{pyver}-keystonemiddleware >= 4.18.0
 Requires: python%{pyver}-netaddr
 Requires: python%{pyver}-oslo-concurrency >= 3.26.0
 Requires: python%{pyver}-oslo-config >= 2:5.2.0
@@ -107,14 +107,14 @@ Requires: python%{pyver}-openstacksdk >= 0.30.0
 %if %{pyver} == 2
 Requires: python-construct >= 2.8.10
 Requires: python-flask
-Requires: python-ironic-lib >= 2.5.0
+Requires: python-ironic-lib >= 2.17.0
 Requires: python-jsonpath-rw
 Requires: python-retrying >= 1.2.3
 Requires: pytz
 %else
 Requires: python%{pyver}-construct >= 2.8.10
 Requires: python%{pyver}-flask
-Requires: python%{pyver}-ironic-lib >= 2.5.0
+Requires: python%{pyver}-ironic-lib >= 2.17.0
 Requires: python%{pyver}-jsonpath-rw
 Requires: python%{pyver}-retrying >= 1.2.3
 Requires: python%{pyver}-pytz
