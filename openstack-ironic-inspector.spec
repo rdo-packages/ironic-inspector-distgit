@@ -140,10 +140,6 @@ BuildRequires: python%{pyver}-pytz
 Obsoletes: openstack-ironic-discoverd < 1.1.1
 Provides: openstack-ironic-discoverd = %{upstream_version}
 
-# NOTE(dtantsur): provide this as a temporary compatibility measure until we
-# update all consumers. Can it be handled more gracefully?
-Requires:   openstack-ironic-inspector-dnsmasq = %{version}-%{release}
-
 %description
 Ironic Inspector is an auxiliary service for discovering hardware properties
 for a node managed by OpenStack Ironic. Hardware introspection or hardware
