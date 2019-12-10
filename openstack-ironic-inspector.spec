@@ -33,6 +33,7 @@ Source6:    ironic-inspector-dist.conf
 Source7:    openstack-ironic-inspector-conductor.service
 
 BuildArch:  noarch
+BuildRequires: git
 BuildRequires: openstack-macros
 BuildRequires: python%{pyver}-devel
 BuildRequires: python%{pyver}-pbr
@@ -221,7 +222,7 @@ Requires:   %{name} = %{version}-%{release}
 It contains the unit tests
 
 %prep
-%autosetup -v -p 1 -n %{service}-%{upstream_version}
+%autosetup -v -p 1 -n %{service}-%{upstream_version} -S git
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
 %py_req_cleanup
