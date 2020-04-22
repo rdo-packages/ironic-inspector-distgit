@@ -160,6 +160,7 @@ Summary:    Documentation for Ironic Inspector.
 
 BuildRequires: python%{pyver}-sphinx
 BuildRequires: python%{pyver}-openstackdocstheme
+BuildRequires: python%{pyver}-sphinxcontrib-apidoc
 BuildRequires: python%{pyver}-sphinxcontrib-rsvgconverter
 
 %description -n openstack-ironic-inspector-doc
@@ -230,7 +231,8 @@ It contains the unit tests
 %build
 %{pyver_build}
 %if 0%{?with_doc}
-%{pyver_bin} setup.py build_sphinx -b html
+export PYTHONPATH=.
+sphinx-build-%{pyver} -W -b html doc/source doc/build/html
 %endif
 
 %install
