@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9797964d_9910cae8",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2020-04-29T12:41:05Z",
+      "side": 1,
+      "message": "nit: should be merged with other build requirements",
+      "revId": "cacbae0669436bf6867f3b6c193c5c61369b5634",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "315e7473_e35ba519",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2020-04-29T12:41:05Z",
+      "side": 1,
+      "message": "Why unversioned command here but versioned below?",
+      "revId": "cacbae0669436bf6867f3b6c193c5c61369b5634",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
