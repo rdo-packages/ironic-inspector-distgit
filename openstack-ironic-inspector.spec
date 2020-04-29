@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %global service ironic-inspector
 %global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
@@ -35,107 +24,83 @@ Source7:    openstack-ironic-inspector-conductor.service
 BuildArch:  noarch
 BuildRequires: git
 BuildRequires: openstack-macros
-BuildRequires: python%{pyver}-devel
-BuildRequires: python%{pyver}-pbr
-BuildRequires: python%{pyver}-stestr
+BuildRequires: python3-devel
+BuildRequires: python3-pbr
+BuildRequires: python3-stestr
 BuildRequires: systemd
 # All these are required to run tests during check step
-BuildRequires: python%{pyver}-mock >= 3.0.5
-BuildRequires: python%{pyver}-alembic
-BuildRequires: python%{pyver}-automaton
-BuildRequires: python%{pyver}-babel
-BuildRequires: python%{pyver}-eventlet
-BuildRequires: python%{pyver}-fixtures
-BuildRequires: python%{pyver}-futurist
-BuildRequires: python%{pyver}-ironicclient
-BuildRequires: python%{pyver}-jsonschema
-BuildRequires: python%{pyver}-keystoneauth1
-BuildRequires: python%{pyver}-keystonemiddleware
-BuildRequires: python%{pyver}-netaddr
-BuildRequires: python%{pyver}-oslo-concurrency
-BuildRequires: python%{pyver}-oslo-config
-BuildRequires: python%{pyver}-oslo-context
-BuildRequires: python%{pyver}-oslo-db
-BuildRequires: python%{pyver}-oslo-i18n
-BuildRequires: python%{pyver}-oslo-log
-BuildRequires: python%{pyver}-oslo-messaging
-BuildRequires: python%{pyver}-oslo-middleware
-BuildRequires: python%{pyver}-oslo-policy
-BuildRequires: python%{pyver}-oslo-serialization
-BuildRequires: python%{pyver}-oslo-utils
-BuildRequires: python%{pyver}-oslotest
-BuildRequires: python%{pyver}-six
-BuildRequires: python%{pyver}-sqlalchemy
-BuildRequires: python%{pyver}-stevedore
-BuildRequires: python%{pyver}-openstacksdk
-BuildRequires: python%{pyver}-testscenarios
-BuildRequires: python%{pyver}-testresources
-BuildRequires: python%{pyver}-tooz
+BuildRequires: python3-mock >= 3.0.5
+BuildRequires: python3-alembic
+BuildRequires: python3-automaton
+BuildRequires: python3-babel
+BuildRequires: python3-eventlet
+BuildRequires: python3-fixtures
+BuildRequires: python3-futurist
+BuildRequires: python3-ironicclient
+BuildRequires: python3-jsonschema
+BuildRequires: python3-keystoneauth1
+BuildRequires: python3-keystonemiddleware
+BuildRequires: python3-netaddr
+BuildRequires: python3-oslo-concurrency
+BuildRequires: python3-oslo-config
+BuildRequires: python3-oslo-context
+BuildRequires: python3-oslo-db
+BuildRequires: python3-oslo-i18n
+BuildRequires: python3-oslo-log
+BuildRequires: python3-oslo-messaging
+BuildRequires: python3-oslo-middleware
+BuildRequires: python3-oslo-policy
+BuildRequires: python3-oslo-serialization
+BuildRequires: python3-oslo-utils
+BuildRequires: python3-oslotest
+BuildRequires: python3-six
+BuildRequires: python3-sqlalchemy
+BuildRequires: python3-stevedore
+BuildRequires: python3-openstacksdk
+BuildRequires: python3-testscenarios
+BuildRequires: python3-testresources
+BuildRequires: python3-tooz
 
 %{?systemd_requires}
 
-Requires: python%{pyver}-pbr
-Requires: python%{pyver}-alembic
-Requires: python%{pyver}-automaton
-Requires: python%{pyver}-babel
-Requires: python%{pyver}-eventlet
-Requires: python%{pyver}-futurist
-Requires: python%{pyver}-ironicclient >= 2.3.0
-Requires: python%{pyver}-jsonschema
-Requires: python%{pyver}-keystoneauth1 >= 3.4.0
-Requires: python%{pyver}-keystonemiddleware >= 4.18.0
-Requires: python%{pyver}-netaddr
-Requires: python%{pyver}-oslo-concurrency >= 3.26.0
-Requires: python%{pyver}-oslo-config >= 2:5.2.0
-Requires: python%{pyver}-oslo-context >= 2.19.2
-Requires: python%{pyver}-oslo-db >= 4.27.0
-Requires: python%{pyver}-oslo-i18n >= 3.15.3
-Requires: python%{pyver}-oslo-log >= 3.36.0
-Requires: python%{pyver}-oslo-messaging >= 5.32.0
-Requires: python%{pyver}-oslo-middleware >= 3.31.0
-Requires: python%{pyver}-oslo-policy >= 1.30.0
-Requires: python%{pyver}-oslo-rootwrap >= 5.8.0
-Requires: python%{pyver}-oslo-serialization >= 2.18.0
-Requires: python%{pyver}-oslo-service >= 1.24.0
-Requires: python%{pyver}-oslo-utils >= 3.33.0
-Requires: python%{pyver}-six
-Requires: python%{pyver}-sqlalchemy
-Requires: python%{pyver}-stevedore
-Requires: python%{pyver}-tooz >= 1.64.0
-Requires: python%{pyver}-openstacksdk >= 0.30.0
-
-# Handle python2 exception
-%if %{pyver} == 2
-Requires: python-construct >= 2.8.10
-Requires: python-flask
-Requires: python-ironic-lib >= 2.17.0
-Requires: python-jsonpath-rw
-Requires: python-retrying >= 1.2.3
-Requires: pytz
-%else
-Requires: python%{pyver}-construct >= 2.8.10
-Requires: python%{pyver}-flask
-Requires: python%{pyver}-ironic-lib >= 2.17.0
-Requires: python%{pyver}-jsonpath-rw
-Requires: python%{pyver}-retrying >= 1.2.3
-Requires: python%{pyver}-pytz
-%endif
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires: python-construct
-BuildRequires: python-flask
-BuildRequires: python-ironic-lib
-BuildRequires: python-jsonpath-rw
-BuildRequires: python-retrying
-BuildRequires: pytz
-%else
-BuildRequires: python%{pyver}-construct
-BuildRequires: python%{pyver}-flask
-BuildRequires: python%{pyver}-ironic-lib
-BuildRequires: python%{pyver}-jsonpath-rw
-BuildRequires: python%{pyver}-retrying
-BuildRequires: python%{pyver}-pytz
-%endif
+Requires: python3-pbr
+Requires: python3-alembic
+Requires: python3-automaton
+Requires: python3-eventlet
+Requires: python3-futurist
+Requires: python3-jsonschema
+Requires: python3-keystoneauth1 >= 3.14.0
+Requires: python3-keystonemiddleware >= 4.18.0
+Requires: python3-netaddr
+Requires: python3-oslo-concurrency >= 3.26.0
+Requires: python3-oslo-config >= 2:5.2.0
+Requires: python3-oslo-context >= 2.19.2
+Requires: python3-oslo-db >= 4.40.0
+Requires: python3-oslo-i18n >= 3.15.3
+Requires: python3-oslo-log >= 3.36.0
+Requires: python3-oslo-messaging >= 5.32.0
+Requires: python3-oslo-middleware >= 3.31.0
+Requires: python3-oslo-policy >= 1.30.0
+Requires: python3-oslo-rootwrap >= 5.8.0
+Requires: python3-oslo-serialization >= 2.18.0
+Requires: python3-oslo-service >= 1.24.0
+Requires: python3-oslo-utils >= 3.33.0
+Requires: python3-sqlalchemy
+Requires: python3-stevedore
+Requires: python3-tooz >= 1.64.0
+Requires: python3-openstacksdk >= 0.40.0
+Requires: python3-construct >= 2.8.10
+Requires: python3-flask
+Requires: python3-ironic-lib >= 2.17.0
+Requires: python3-jsonpath-rw
+Requires: python3-retrying >= 1.2.3
+Requires: python3-pytz
+BuildRequires: python3-construct
+BuildRequires: python3-flask
+BuildRequires: python3-ironic-lib
+BuildRequires: python3-jsonpath-rw
+BuildRequires: python3-retrying
+BuildRequires: python3-pytz
 
 Obsoletes: openstack-ironic-discoverd < 1.1.1
 Provides: openstack-ironic-discoverd = %{upstream_version}
@@ -154,10 +119,10 @@ API and conductor in one binary.
 %package -n openstack-ironic-inspector-doc
 Summary:    Documentation for Ironic Inspector.
 
-BuildRequires: python%{pyver}-sphinx
-BuildRequires: python%{pyver}-openstackdocstheme
-BuildRequires: python%{pyver}-sphinxcontrib-apidoc
-BuildRequires: python%{pyver}-sphinxcontrib-rsvgconverter
+BuildRequires: python3-sphinx
+BuildRequires: python3-openstackdocstheme
+BuildRequires: python3-sphinxcontrib-apidoc
+BuildRequires: python3-sphinxcontrib-rsvgconverter
 
 %description -n openstack-ironic-inspector-doc
 Documentation for Ironic Inspector.
@@ -209,13 +174,13 @@ scheduling from a bare metal node, given it’s power management credentials
 This package contains an ironic-inspector WSGI service, which can be used
 to split ironic-inspector into API and conductor processes.
 
-%package -n python%{pyver}-%{service}-tests
+%package -n python3-%{service}-tests
 Summary:    %{service} Unit Tests
 %{?python_provide:%python_provide python2-%{service}-tests}
 
 Requires:   %{name} = %{version}-%{release}
 
-%description -n python%{pyver}-%{service}-tests
+%description -n python3-%{service}-tests
 It contains the unit tests
 
 %prep
@@ -225,15 +190,15 @@ It contains the unit tests
 %py_req_cleanup
 
 %build
-%{pyver_build}
+%{py3_build}
 %if 0%{?with_doc}
 export PYTHONPATH=.
-sphinx-build-%{pyver} -W -b html doc/source doc/build/html
+sphinx-build -W -b html doc/source doc/build/html
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
-%{pyver_install}
+%{py3_install}
 
 mkdir -p %{buildroot}%{_mandir}/man8
 install -p -D -m 644 ironic-inspector.8 %{buildroot}%{_mandir}/man8/
@@ -256,8 +221,8 @@ install -p -D -m 440 %{SOURCE4} %{buildroot}%{_sysconfdir}/sudoers.d/ironic-insp
 # generate example configuration files
 install -d -m 750 %{buildroot}%{_sysconfdir}/ironic-inspector
 export PYTHONPATH=.
-oslo-config-generator-%{pyver} --config-file tools/config-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
-oslopolicy-sample-generator-%{pyver} --config-file tools/policy-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/policy.json
+oslo-config-generator --config-file tools/config-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
+oslopolicy-sample-generator-3 --config-file tools/policy-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/policy.json
 
 # configuration contains passwords, thus 640
 chmod 0640 %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
@@ -278,7 +243,7 @@ mkdir -p %{buildroot}%{_sharedstatedir}/ironic-inspector/dhcp-hostsdir
 
 %check
 %if 0%{?with_tests}
-PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
+PYTHON=%{__python3} stestr run --test-path ironic_inspector.test.unit
 %endif
 
 %files
@@ -287,9 +252,9 @@ PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 %config(noreplace) %attr(-,root,ironic-inspector) %{_sysconfdir}/ironic-inspector
 %config(noreplace) %{_sysconfdir}/logrotate.d/openstack-ironic-inspector
 %{_sysconfdir}/sudoers.d/ironic-inspector
-%{pyver_sitelib}/%{modulename}
-%{pyver_sitelib}/%{modulename}-*.egg-info
-%exclude %{pyver_sitelib}/%{modulename}/test
+%{python3_sitelib}/%{modulename}
+%{python3_sitelib}/%{modulename}-*.egg-info
+%exclude %{python3_sitelib}/%{modulename}/test
 %{_bindir}/ironic-inspector
 %{_bindir}/ironic-inspector-rootwrap
 %{_bindir}/ironic-inspector-dbsync
@@ -300,7 +265,7 @@ PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector
 %attr(-,ironic-inspector,ironic-inspector) %{_localstatedir}/log/ironic-inspector/ramdisk/
 %doc %{_mandir}/man8/ironic-inspector.8.gz
-%exclude %{pyver_sitelib}/%{modulename}_tests.egg-info
+%exclude %{python3_sitelib}/%{modulename}_tests.egg-info
 
 %if 0%{?with_doc}
 %files -n openstack-ironic-inspector-doc
@@ -321,9 +286,9 @@ PYTHON=%{pyver_bin} stestr-%{pyver} run --test-path ironic_inspector.test.unit
 %license LICENSE
 %{_bindir}/ironic-inspector-api-wsgi
 
-%files -n python%{pyver}-%{service}-tests
+%files -n python3-%{service}-tests
 %license LICENSE
-%{pyver_sitelib}/%{modulename}/test
+%{python3_sitelib}/%{modulename}/test
 
 %pre
 getent group ironic-inspector >/dev/null || groupadd -r ironic-inspector
