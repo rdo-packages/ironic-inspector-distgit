@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a13080dd_a82b06b2",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-04-29T06:18:36Z",
+      "side": 0,
+      "message": "puppet job failing after this https://logserver.rdoproject.org/ci.centos.org/weirdo-generic-puppet-openstack-scenario002/14848/weirdo-project/puppet.txt.gz, need to adopt puppet to handle this before it can be removed.",
+      "revId": "889911508be85fd94548546fad3d0d9918b5211b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
