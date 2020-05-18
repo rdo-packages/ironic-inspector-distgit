@@ -95,7 +95,7 @@ Requires: python3-sqlalchemy
 Requires: python3-stevedore
 Requires: python3-tooz >= 1.64.0
 Requires: python3-openstacksdk >= 0.40.0
-Requires: python3-construct >= 2.8.10
+Requires: python3-construct >= 2.9.39
 Requires: python3-flask
 Requires: python3-ironic-lib >= 2.17.0
 Requires: python3-jsonpath-rw
