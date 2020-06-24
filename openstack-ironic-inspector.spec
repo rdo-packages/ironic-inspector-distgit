@@ -32,7 +32,6 @@ BuildRequires: systemd
 BuildRequires: python3-mock >= 3.0.5
 BuildRequires: python3-alembic
 BuildRequires: python3-automaton
-BuildRequires: python3-babel
 BuildRequires: python3-eventlet
 BuildRequires: python3-fixtures
 BuildRequires: python3-futurist
