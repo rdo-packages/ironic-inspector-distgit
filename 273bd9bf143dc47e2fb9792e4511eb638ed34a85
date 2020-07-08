@@ -1,0 +1,9 @@
+Code-Review+2: Dmitry Tantsur <dtantsur@protonmail.com>
+Code-Review+1: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Dmitry Tantsur <dtantsur@protonmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 08 Jul 2020 18:41:18 +0000
+Reviewed-on: https://review.rdoproject.org/r/28213
+Project: openstack/ironic-inspector-distgit
+Branch: refs/heads/rpm-master
