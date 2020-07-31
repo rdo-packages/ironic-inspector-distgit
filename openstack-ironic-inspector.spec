@@ -68,15 +68,19 @@ BuildRequires: python3-pytz
 
 %{?systemd_requires}
 
-Requires: python3-pbr
-Requires: python3-alembic
-Requires: python3-automaton
-Requires: python3-eventlet
-Requires: python3-futurist
-Requires: python3-jsonschema
-Requires: python3-keystoneauth1 >= 3.14.0
+Requires: python3-alembic >= 0.9.6
+Requires: python3-automaton >= 1.9.0
+Requires: python3-construct >= 2.9.39
+Requires: python3-eventlet >= 0.18.2
+Requires: python3-flask >= 1.1.0
+Requires: python3-futurist >= 1.2.0
+Requires: python3-ironic-lib >= 4.3.0
+Requires: python3-jsonpath-rw >= 1.2.0
+Requires: python3-jsonschema >= 2.6.0
+Requires: python3-keystoneauth1 >= 4.2.0
 Requires: python3-keystonemiddleware >= 4.18.0
-Requires: python3-netaddr
+Requires: python3-netaddr >= 0.7.18
+Requires: python3-openstacksdk >= 0.40.0
 Requires: python3-oslo-concurrency >= 3.26.0
 Requires: python3-oslo-config >= 2:5.2.0
 Requires: python3-oslo-context >= 2.19.2
@@ -90,16 +94,12 @@ Requires: python3-oslo-rootwrap >= 5.8.0
 Requires: python3-oslo-serialization >= 2.18.0
 Requires: python3-oslo-service >= 1.24.0
 Requires: python3-oslo-utils >= 3.33.0
-Requires: python3-sqlalchemy
-Requires: python3-stevedore
-Requires: python3-tooz >= 1.64.0
-Requires: python3-openstacksdk >= 0.40.0
-Requires: python3-construct >= 2.9.39
-Requires: python3-flask
-Requires: python3-ironic-lib >= 2.17.0
-Requires: python3-jsonpath-rw
+Requires: python3-pbr >= 2.0.0
+Requires: python3-pytz >= 2013.6
 Requires: python3-retrying >= 1.2.3
-Requires: python3-pytz
+Requires: python3-sqlalchemy >= 1.0.10
+Requires: python3-stevedore >= 1.20.0
+Requires: python3-tooz >= 1.64.0
 
 
 Obsoletes: openstack-ironic-discoverd < 1.1.1
