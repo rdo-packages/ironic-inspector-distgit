@@ -7,7 +7,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    10.3.0
+Version:    10.4.0
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -326,6 +326,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
 
 %changelog
+* Thu Oct 01 2020 RDO <dev@lists.rdoproject.org> 10.4.0-1
+- Update to 10.4.0
+
 * Wed Sep 30 2020 RDO <dev@lists.rdoproject.org> 10.3.0-1
 - Update to 10.3.0
 
