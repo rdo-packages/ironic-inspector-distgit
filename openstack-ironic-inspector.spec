@@ -9,8 +9,8 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    10.4.0
-Release:    2%{?dist}
+Version:    10.4.1
+Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
 
@@ -342,6 +342,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
 
 %changelog
+* Thu Nov 26 2020 RDO <dev@lists.rdoproject.org> 10.4.1-1
+- Update to 10.4.1
+
 * Tue Oct 20 2020 Joel Capitao <jcapitao@redhat.com> 10.4.0-2
 - Enable sources tarball validation using GPG signature.
 
