@@ -88,7 +88,7 @@ Requires: python3-flask >= 1.1.0
 Requires: python3-futurist >= 1.2.0
 Requires: python3-ironic-lib >= 4.3.0
 Requires: python3-jsonpath-rw >= 1.2.0
-Requires: python3-jsonschema >= 2.6.0
+Requires: python3-jsonschema >= 3.2.0
 Requires: python3-keystoneauth1 >= 4.2.0
 Requires: python3-keystonemiddleware >= 4.18.0
 Requires: python3-netaddr >= 0.7.18
@@ -112,7 +112,7 @@ Requires: python3-sqlalchemy >= 1.2.19
 Requires: python3-stevedore >= 1.20.0
 Requires: python3-tooz >= 2.5.1
 Requires: python3-tenacity >= 6.2.0
-Requires: python3-PyYAML >= 3.12
+Requires: python3-PyYAML >= 5.3
 
 
 Obsoletes: openstack-ironic-discoverd < 1.1.1
