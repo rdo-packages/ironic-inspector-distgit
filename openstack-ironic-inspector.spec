@@ -18,7 +18,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    9.2.3
+Version:    9.2.4
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -361,6 +361,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
 
 %changelog
+* Mon Feb 01 2021 RDO <dev@lists.rdoproject.org> 9.2.4-1
+- Update to 9.2.4
+
 * Mon Jun 15 2020 RDO <dev@lists.rdoproject.org> 9.2.3-1
 - Update to 9.2.3
 
