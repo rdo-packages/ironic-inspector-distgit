@@ -342,3 +342,4 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/ironic-inspector/commit/8d06567a6e233d616c3c6cd1118c993b1481ff86
