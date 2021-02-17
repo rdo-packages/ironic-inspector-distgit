@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "815fb3af_841f34dd",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2021-02-17T15:08:42Z",
+      "side": 0,
+      "message": "Is it okay to remove this?",
+      "revId": "f2f17a7e658aa2dc6db0fc5dbb8039735194a8fb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
