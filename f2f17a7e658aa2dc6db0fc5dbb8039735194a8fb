@@ -16,6 +16,29 @@
       "revId": "f2f17a7e658aa2dc6db0fc5dbb8039735194a8fb",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b065b008_99e3724e",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2021-02-17T15:09:21Z",
+      "side": 0,
+      "message": "We need to keep the %changelog line (not the extra stuff added by the first PS, just this).",
+      "range": {
+        "startLine": 344,
+        "startChar": 1,
+        "endLine": 344,
+        "endChar": 10
+      },
+      "revId": "f2f17a7e658aa2dc6db0fc5dbb8039735194a8fb",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
