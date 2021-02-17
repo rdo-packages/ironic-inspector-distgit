@@ -1,0 +1,8 @@
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Workflow+1: Dmitry Tantsur <dtantsur@protonmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 17 Feb 2021 17:05:04 +0000
+Reviewed-on: https://review.rdoproject.org/r/32013
+Project: openstack/ironic-inspector-distgit
+Branch: refs/heads/rpm-master
