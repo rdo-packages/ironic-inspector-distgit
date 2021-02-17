@@ -275,6 +275,7 @@ PYTHON=%{__python3} stestr run --test-path ironic_inspector.test.unit
 %{_bindir}/ironic-inspector
 %{_bindir}/ironic-inspector-rootwrap
 %{_bindir}/ironic-inspector-dbsync
+%{_bindir}/ironic-inspector-status
 %{_bindir}/ironic-inspector-migrate-data
 %{_unitdir}/openstack-ironic-inspector.service
 %attr(-,ironic-inspector,ironic-inspector) %{_sharedstatedir}/ironic-inspector
@@ -340,5 +341,3 @@ exit 0
 
 %postun -n openstack-ironic-inspector-conductor
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
-
-%changelog
