@@ -83,7 +83,7 @@ BuildRequires: python3-pytz
 Requires: python3-alembic >= 1.4.2
 Requires: python3-automaton >= 1.9.0
 Requires: python3-construct >= 2.9.39
-Requires: python3-eventlet >= 0.18.2
+Requires: python3-eventlet >= 0.26.0
 Requires: python3-flask >= 1.1.0
 Requires: python3-futurist >= 1.2.0
 Requires: python3-ironic-lib >= 4.3.0
@@ -94,25 +94,26 @@ Requires: python3-keystonemiddleware >= 4.18.0
 Requires: python3-netaddr >= 0.7.18
 Requires: python3-openstacksdk >= 0.40.0
 Requires: python3-oslo-concurrency >= 3.26.0
-Requires: python3-oslo-config >= 2:5.2.0
+Requires: python3-oslo-config >= 2:6.8.0
 Requires: python3-oslo-context >= 2.19.2
 Requires: python3-oslo-db >= 6.0.0
 Requires: python3-oslo-i18n >= 3.15.3
 Requires: python3-oslo-log >= 3.36.0
 Requires: python3-oslo-messaging >= 5.32.0
 Requires: python3-oslo-middleware >= 3.31.0
-Requires: python3-oslo-policy >= 1.30.0
+Requires: python3-oslo-policy >= 3.6.0
 Requires: python3-oslo-rootwrap >= 5.8.0
 Requires: python3-oslo-serialization >= 2.18.0
 Requires: python3-oslo-service >= 1.24.0
-Requires: python3-oslo-utils >= 3.33.0
+Requires: python3-oslo-utils >= 4.5.0
 Requires: python3-pbr >= 2.0.0
 Requires: python3-pytz >= 2013.6
 Requires: python3-sqlalchemy >= 1.2.19
 Requires: python3-stevedore >= 1.20.0
 Requires: python3-tooz >= 2.5.1
 Requires: python3-tenacity >= 6.2.0
-Requires: python3-PyYAML >= 5.3.1
+Requires: python3-yaml >= 5.3.1
+Requires: python3-oslo-upgradecheck >= 1.2.0
 
 
 Obsoletes: openstack-ironic-discoverd < 1.1.1
