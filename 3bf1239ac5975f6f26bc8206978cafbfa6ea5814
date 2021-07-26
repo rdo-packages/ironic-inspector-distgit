@@ -1,0 +1,8 @@
+Code-Review+2: Dmitry Tantsur <dtantsur@protonmail.com>
+Workflow+1: Dmitry Tantsur <dtantsur@protonmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 26 Jul 2021 11:59:29 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/ironic-inspector-distgit/+/34673
+Project: openstack/ironic-inspector-distgit
+Branch: refs/heads/ussuri-rdo
