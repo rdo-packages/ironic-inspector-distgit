@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %global service ironic-inspector
 %global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
@@ -9,7 +9,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    10.6.1
+Version:    10.6.2
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -27,6 +27,9 @@ Source7:    openstack-ironic-inspector-conductor.service
 Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
+# TODO(jcapitao): patch to be removed once the upstream backport
+# https://review.opendev.org/c/openstack/ironic-inspector/+/854769 merged
+Patch001:   0001-Fix-SqlAlchemy-1.3.19-support.patch
 
 BuildArch:  noarch
 
@@ -344,6 +347,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
 
 %changelog
+* Wed Aug 24 2022 RDO <dev@lists.rdoproject.org> 10.6.2-1
+- Update to 10.6.2
+
 * Thu Aug 26 2021 RDO <dev@lists.rdoproject.org> 10.6.1-1
 - Update to 10.6.1
 

@@ -1,0 +1,47 @@
+From 1c07125fb3198db6b655d7f30985cd15a5938598 Mon Sep 17 00:00:00 2001
+From: Julia Kreger <juliaashleykreger@gmail.com>
+Date: Tue, 15 Jun 2021 12:47:33 -0700
+Subject: [PATCH] Fix SqlAlchemy >1.3.19 support
+
+SQLAlchemy 1.3.19 change the excepted exception and 1.4.x
+changed the enum checking behavior such that we were no
+longer raising an exception matching the check.
+
+While we had a test for this, We didn't actually
+check for it anywhere in the code. And the states are
+driven by the code, so the underlying test that was broken
+felt redundant. As such, it has been removed.
+
+Change-Id: I39fa3d85978555b6cb9d0884a90625b4765bac28
+(cherry picked from commit 948325cae7f3fcce7589014509fa146373398d82)
+---
+ ironic_inspector/test/unit/test_node_cache.py | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/ironic_inspector/test/unit/test_node_cache.py b/ironic_inspector/test/unit/test_node_cache.py
+index cdc7bb8..58a0f06 100644
+--- a/ironic_inspector/test/unit/test_node_cache.py
++++ b/ironic_inspector/test/unit/test_node_cache.py
+@@ -21,7 +21,6 @@ from unittest import mock
+ import automaton
+ from openstack import exceptions as os_exc
+ from oslo_config import cfg
+-import oslo_db
+ from oslo_utils import timeutils
+ from oslo_utils import uuidutils
+ 
+@@ -1051,11 +1050,6 @@ class TestNodeInfoState(test_base.NodeStateTest):
+         row = db.model_query(db.Node).get(self.node_info.uuid)
+         self.assertEqual(self.node_info.state, row.state)
+ 
+-    def test_set_invalid_state(self):
+-        self.assertRaisesRegex(oslo_db.exception.DBError,
+-                               'constraint failed',
+-                               self.node_info._set_state, 'foo')
+-
+     def test_commit(self):
+         current_time = timeutils.utcnow()
+         self.node_info.started_at = self.node_info.finished_at = current_time
+-- 
+2.37.1
+
