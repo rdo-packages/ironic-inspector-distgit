@@ -16,6 +16,24 @@
       "message": "patch is merged now",
       "revId": "200e01ac76f760819fcbc17310a2e49c603206e7",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc4d5bd_f427a6e4",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-09T06:57:07Z",
+      "side": 1,
+      "message": "Yes but it will be in next release, we\u0027ll have to remove this patch when new bump version",
+      "parentUuid": "c126f884_2b8456e3",
+      "revId": "200e01ac76f760819fcbc17310a2e49c603206e7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
