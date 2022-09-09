@@ -34,6 +34,24 @@
       "parentUuid": "c126f884_2b8456e3",
       "revId": "200e01ac76f760819fcbc17310a2e49c603206e7",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb127561_03584668",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2022-09-09T07:04:49Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "cbc4d5bd_f427a6e4",
+      "revId": "200e01ac76f760819fcbc17310a2e49c603206e7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
