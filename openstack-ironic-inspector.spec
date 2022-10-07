@@ -65,7 +65,7 @@ BuildRequires: python3-oslo-serialization
 BuildRequires: python3-oslo-utils
 BuildRequires: python3-oslotest
 BuildRequires: python3-six
-BuildRequires: python3-sqlalchemy
+BuildRequires: python3-sqlalchemy < 1.4.0
 BuildRequires: python3-stevedore
 BuildRequires: python3-openstacksdk
 BuildRequires: python3-testscenarios
@@ -109,6 +109,7 @@ Requires: python3-oslo-utils >= 4.5.0
 Requires: python3-pbr >= 2.0.0
 Requires: python3-pytz >= 2013.6
 Requires: python3-sqlalchemy >= 1.2.19
+Requires: python3-sqlalchemy < 1.4.0
 Requires: python3-stevedore >= 1.20.0
 Requires: python3-tooz >= 2.5.1
 Requires: python3-tenacity >= 6.2.0
