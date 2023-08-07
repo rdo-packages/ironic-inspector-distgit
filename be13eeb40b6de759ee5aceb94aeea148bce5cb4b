@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74eced4b_c4814201",
+        "filename": "openstack-ironic-inspector.spec",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-08-07T09:24:58Z",
+      "side": 0,
+      "message": "minor nit, we are losing this file.",
+      "range": {
+        "startLine": 292,
+        "startChar": 5,
+        "endLine": 292,
+        "endChar": 22
+      },
+      "revId": "be13eeb40b6de759ee5aceb94aeea148bce5cb4b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
