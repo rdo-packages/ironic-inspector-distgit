@@ -189,7 +189,6 @@ install -p -D -m 440 %{SOURCE4} %{buildroot}%{_sysconfdir}/sudoers.d/ironic-insp
 install -d -m 750 %{buildroot}%{_sysconfdir}/ironic-inspector
 export PYTHONPATH="%{buildroot}/%{python3_sitelib}"
 oslo-config-generator --config-file tools/config-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
-oslopolicy-sample-generator --config-file tools/policy-generator.conf --output-file %{buildroot}/%{_sysconfdir}/ironic-inspector/policy.json
 
 # configuration contains passwords, thus 640
 chmod 0640 %{buildroot}/%{_sysconfdir}/ironic-inspector/inspector.conf
