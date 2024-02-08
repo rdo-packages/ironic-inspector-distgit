@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %global service ironic-inspector
 %global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
@@ -9,7 +9,7 @@
 
 Name:       openstack-ironic-inspector
 Summary:    Hardware introspection service for OpenStack Ironic
-Version:    11.1.0
+Version:    11.1.1
 Release:    1%{?dist}
 License:    ASL 2.0
 URL:        https://launchpad.net/ironic-inspector
@@ -344,6 +344,9 @@ exit 0
 %systemd_postun_with_restart openstack-ironic-inspector-conductor.service
 
 %changelog
+* Thu Feb 08 2024 RDO <dev@lists.rdoproject.org> 11.1.1-1
+- Update to 11.1.1
+
 * Thu Sep 22 2022 RDO <dev@lists.rdoproject.org> 11.1.0-1
 - Update to 11.1.0
 
