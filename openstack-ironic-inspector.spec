@@ -3,6 +3,8 @@
 %global service ironic-inspector
 %global modulename ironic_inspector
 %{!?upstream_version: %global upstream_version %{version}}
+%{?dlrn: %global tarsources ironic-inspector}
+%{!?dlrn: %global tarsources ironic_inspector}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order os-api-ref
 # Exclude sphinx from BRs if docs are disabled
@@ -20,7 +22,7 @@ Release:    XXX
 License:    Apache-2.0
 URL:        https://launchpad.net/ironic-inspector
 
-Source0:    https://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz
+Source0:    https://tarballs.openstack.org/%{service}/%{tarsources}-%{upstream_version}.tar.gz
 Source1:    openstack-ironic-inspector.service
 Source2:    openstack-ironic-inspector-dnsmasq.service
 Source3:    dnsmasq.conf
@@ -30,7 +32,7 @@ Source6:    ironic-inspector-dist.conf
 Source7:    openstack-ironic-inspector-conductor.service
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
-Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz.asc
+Source101:        https://tarballs.openstack.org/%{service}/%{tarsources}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
 
@@ -130,7 +132,7 @@ It contains the unit tests
 %if 0%{?sources_gpg} == 1
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
-%autosetup -v -p 1 -n %{service}-%{upstream_version} -S git
+%autosetup -v -p 1 -n %{tarsources}-%{upstream_version} -S git
 
 sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
