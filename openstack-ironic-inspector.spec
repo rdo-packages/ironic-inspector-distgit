@@ -295,3 +295,4 @@ exit 0
 
 %changelog
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/ironic-inspector/commit/7bb56b3c5a8b18f87221edd3405ced2a3571b446
